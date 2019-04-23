@@ -137,17 +137,12 @@
                   <ul class="dropdown-menu">
 
                     <li class="nav-item">
-                      <a class="nav-link" href="SViewHostels.html"
-                        >View Hostels</a
+                      <a class="nav-link" href="ViewHostels.html"
+                        >View/Request Hostels</a
                       >
                     </li>
 
 
-                    <li class="nav-item">
-                      <a class="nav-link" href="SHostelRequests.html"
-                        >Request Hostel</a
-                      >
-                    </li>
                   </ul>
                 </li>
                 <li class="nav-item submenu dropdown">
@@ -268,9 +263,55 @@
       </div>
       <!--================ End Registration Area =================-->
 
-    <!--================ Start Feature Area =================-->
+    <!--================ Start Change UserName Area =================-->
+    <center>
+    <div class="col-lg-4 offset-lg-1">
+      <div class="register_form">
+        <h3>Change Information</h3>
+        <p>User Name and Password</p>
+        <form
+          class="form_area"
+          id="myForm"
+          action="mail.html"
+          method="post"
+        >
+          <div class="row">
+            <div class="col-lg-12 form_group">
+              <input
+                name="UserName"
+                placeholder="Your UserName"
+                required=""
+                type="text"
+              />
+              <input
+                name="OldPwd"
+                placeholder="Your Old Password"
+                required=""
+                type="text"
+              />
+              <input
+                name="NewPwd"
+                placeholder="Your New Password"
+                required=""
+                type="text"
+              />
+              <input
+                name="ReConfirmPwd"
+                placeholder="Re Enter Your New Password"
+                required=""
+                type="text"
+              />
+            </div>
+            <div class="col-lg-12 text-center">
+              <button class="primary-btn">Change</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </center>
 
-    <!--================ End Feature Area =================-->
+    <!--================ End Change UserName Area =================-->
 
     <!--================ Start footer Area  =================-->
 

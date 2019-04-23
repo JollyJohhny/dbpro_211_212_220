@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <link rel="icon" href="img/favicon.png" type="image/png" />
-    <title>Parent Account</title>
+    <title>Add Hostel</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/flaticon.css" />
@@ -81,18 +81,48 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    >Attendance</a
+                    >Manage Student</a
                   >
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="ViewAttendance.html">View Attendance</a>
+                      <a class="nav-link" href="Attendance.html">Attendance</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="SLeaveView.html"
-                        >View Leaves</a
+                      <a class="nav-link" href="Result.html"
+                        >Result</a
                       >
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="SRegRequests.html"
+                        >Register Requests</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="Enrollment.html"
+                        >EnRollMent</a
+                      >
+                    </li>
+                  </ul>
+                </li>
 
+                <li class="nav-item submenu dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >Manage Parents</a
+                  >
+                  <ul class="dropdown-menu">
+
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="PRegRequests.html"
+                        >Register Requests</a
+                      >
+                    </li>
 
                   </ul>
                 </li>
@@ -105,67 +135,21 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    >Results</a
+                    >Manage Hostels</a
                   >
                   <ul class="dropdown-menu">
-
-
                     <li class="nav-item">
-                      <a class="nav-link" href="SExamResultView.html"
-                        >View Exam Result</a
-                      >
+                      <a class="nav-link" href="AddHostels.html">Add Hostels</a>
                     </li>
-
-                  </ul>
-                </li>
-                <li class="nav-item submenu dropdown">
-                  <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    >Hostels</a
-                  >
-                  <ul class="dropdown-menu">
-
                     <li class="nav-item">
                       <a class="nav-link" href="ViewHostels.html"
-                        >View/Request Hostels</a
+                        >View Hostels</a
                       >
                     </li>
-
-
-                  </ul>
-                </li>
-                <li class="nav-item submenu dropdown">
-                  <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    >Student Fee</a
-                  >
-                  <ul class="dropdown-menu">
-
+                    
                     <li class="nav-item">
-                      <a class="nav-link" href="SViewFeeMonthly.html"
-                        >View Monthly</a
-                      >
-                    </li>
-
-
-                    <li class="nav-item">
-                      <a class="nav-link" href="SViewFeeAnnualy.html"
-                        >View Annually</a
-                      >
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="SViewFeeStatuses.html"
-                        >View Statuses</a
+                      <a class="nav-link" href="HostelRequests.html"
+                        >Hostels Requests</a
                       >
                     </li>
                   </ul>
@@ -193,11 +177,11 @@
           <div class="row justify-content-center">
             <div class="col-lg-6">
               <div class="banner_content text-center">
-                <h2>Parent</h2>
+                <h2>Hostels</h2>
                 <div class="page_link">
 
 
-                  <a href="#">Account</a>
+                  <a href="#">Add</a>
                 </div>
               </div>
             </div>
@@ -211,9 +195,9 @@
     <div class="popular_courses section_gap_top">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-5">
+          <div class="col-lg-8">
             <div class="main_title">
-              <h2 class="mb-3">Welcome Syed Junaid Ali!</h2>
+              <h2 class="mb-3">You can Add Hostels From Here!</h2>
 
             </div>
           </div>
@@ -228,82 +212,69 @@
             <div class="col-lg-7">
               <div class="row clock_sec clockdiv" id="clockdiv">
                 <div class="col-lg-12">
-                  <div class="col-md-5">
-                    <a href="img/elements/g1.jpg" class="img-gal">
-                      <div class="single-gallery-image" style="background: url(img/elements/junaid.jpg);"></div>
-                    </a>
-
-                  </div>
+                  <h1 class="mb-3"></h1>
 
                 </div>
 
               </div>
             </div>
-
+            <center>
             <div class="col-lg-4 offset-lg-1">
+
               <div class="register_form">
-                <p>Name : Syed Junaid Ali</p>
-                <p>Contact : 03216964902</p>
-                <p>Registration No : 2016-CS-211</p>
-                <p>Email : johhny424@gmail.com</p>
+                <h3>Add Hostel</h3>
+                <p>Enter Hostel Information</p>
+                <form
+                  class="form_area"
+                  id="myForm"
+                  action="mail.html"
+                  method="post"
+                >
+                  <div class="row">
+                    <div class="col-lg-12 form_group">
+                      <input
+                        name="name"
+                        placeholder="Hostel Name"
+                        required=""
+                        type="text"
+                      />
+                      <input
+                        name="phone"
+                        placeholder="Hostel Location"
+                        required=""
+                        type="text"
+                      />
+                      <input
+                        name="phone"
+                        placeholder="Hostel Detail"
+                        required=""
+                        type="text"
+                      />
+                      <input
+                        name="phone"
+                        placeholder="Hostel Rent"
+                        required=""
+                        type="text"
+                      />
+
+                    </div>
+                    <div class="col-lg-12 text-center">
+                      <button class="primary-btn">Add</button>
+                    </div>
+                  </div>
+                </form>
+
               </div>
             </div>
-
-
-
+            </center>
           </div>
         </div>
       </div>
       <!--================ End Registration Area =================-->
 
-    <!--================ Start Change Area =================-->
-    <center>
-    <div class="col-lg-4 offset-lg-1">
-      <div class="register_form">
-        <h3>Change Information</h3>
-        <p>User Name and Password</p>
-        <form
-          class="form_area"
-          id="myForm"
-          action="mail.html"
-          method="post"
-        >
-          <div class="row">
-            <div class="col-lg-12 form_group">
-              <input
-                name="UserName"
-                placeholder="Your UserName"
-                required=""
-                type="text"
-              />
-              <input
-                name="OldPwd"
-                placeholder="Your Old Password"
-                required=""
-                type="text"
-              />
-              <input
-                name="NewPwd"
-                placeholder="Your New Password"
-                required=""
-                type="text"
-              />
-              <input
-                name="ReConfirmPwd"
-                placeholder="Re Enter Your New Password"
-                required=""
-                type="text"
-              />
-            </div>
-            <div class="col-lg-12 text-center">
-              <button class="primary-btn">Change</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    </center>
-    <!--================ End Change Area =================-->
+    <!--================ Start Feature Area =================-->
+
+    <!--================ End Feature Area =================-->
 
     <!--================ Start footer Area  =================-->
 
