@@ -142,6 +142,7 @@
       <End Role="AspNetRole" EntitySet="AspNetRoles" />
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
     </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="DBSmartSchoolWebPortalModel.sysdiagram" />
   </EntityContainer>
   <EntityType Name="C__MigrationHistory">
     <Key>
@@ -373,6 +374,7 @@
     <Property Name="StudentId" Type="Int32" />
     <NavigationProperty Name="Complaints" Relationship="DBSmartSchoolWebPortalModel.FK_Complaints_Parent" FromRole="Parent" ToRole="Complaint" />
     <NavigationProperty Name="Student" Relationship="DBSmartSchoolWebPortalModel.FK_Parent_Student" FromRole="Parent" ToRole="Student" />
+    <Property Name="Status" Type="Int32" />
   </EntityType>
   <EntityType Name="RegisteredCourse">
     <Key>
@@ -429,6 +431,7 @@
     <NavigationProperty Name="RegisteredHostels" Relationship="DBSmartSchoolWebPortalModel.FK_RegisteredHostels_Student" FromRole="Student" ToRole="RegisteredHostel" />
     <NavigationProperty Name="StudentAttendances" Relationship="DBSmartSchoolWebPortalModel.FK_StudentAttendance_Student" FromRole="Student" ToRole="StudentAttendance" />
     <NavigationProperty Name="StudentFees" Relationship="DBSmartSchoolWebPortalModel.FK_StudentFee_Student" FromRole="Student" ToRole="StudentFee" />
+    <Property Name="Status" Type="Int32" />
   </EntityType>
   <EntityType Name="StudentAttendance">
     <Key>
@@ -796,4 +799,14 @@
     <End Type="DBSmartSchoolWebPortalModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
     <End Type="DBSmartSchoolWebPortalModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
   </Association>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>
