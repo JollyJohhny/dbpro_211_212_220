@@ -223,7 +223,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\StudentController.cs" />
+=======
+    <Compile Include="Controllers\ParentController.cs" />
+>>>>>>> a1a0353ad3d48dc9b9ba3c0d7aeaa6c2f08ba11f
     <Compile Include="Course.cs">
       <DependentUpon>DBSmartSchool.tt</DependentUpon>
     </Compile>
@@ -270,9 +274,14 @@
       <DependentUpon>DBSmartSchool.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ClassViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\StudentViewModel.cs" />
+=======
+    <Compile Include="Models\ParentViewModel.cs" />
+>>>>>>> a1a0353ad3d48dc9b9ba3c0d7aeaa6c2f08ba11f
     <Compile Include="News.cs">
       <DependentUpon>DBSmartSchool.tt</DependentUpon>
     </Compile>
@@ -289,6 +298,7 @@
     <Compile Include="Section.cs">
       <DependentUpon>DBSmartSchool.tt</DependentUpon>
     </Compile>
+    <Compile Include="Session.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Student.cs">
       <DependentUpon>DBSmartSchool.tt</DependentUpon>
@@ -297,6 +307,9 @@
       <DependentUpon>DBSmartSchool.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentFee.cs">
+      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
       <DependentUpon>DBSmartSchool.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -511,7 +524,11 @@
     <Content Include="scss\_reset.scss" />
     <Content Include="scss\_responsive.scss" />
     <Content Include="scss\_variables.scss" />
+<<<<<<< HEAD
     <Content Include="Views\Student\Register.cshtml" />
+=======
+    <Content Include="Views\Parent\Register.cshtml" />
+>>>>>>> a1a0353ad3d48dc9b9ba3c0d7aeaa6c2f08ba11f
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

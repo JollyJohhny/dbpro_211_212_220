@@ -50,5 +50,6 @@ namespace SmartSchoolWebPortal
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<StudentAttendance> StudentAttendances { get; set; }
         public virtual DbSet<StudentFee> StudentFees { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
