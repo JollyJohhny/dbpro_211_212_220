@@ -24,10 +24,7 @@ namespace SmartSchoolWebPortal
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<int> Strength { get; set; }
-        public Nullable<int> ClassId { get; set; }
     
-        public virtual Class Class { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClassAttendance> ClassAttendances { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

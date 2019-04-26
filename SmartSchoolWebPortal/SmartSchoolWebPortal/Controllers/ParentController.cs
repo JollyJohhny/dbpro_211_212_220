@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,78 +9,86 @@ namespace SmartSchoolWebPortal.Controllers
 {
     public class ParentController : Controller
     {
-        // GET: Parent
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: Parent
         public ActionResult Register()
         {
-            return View();
-        }
-
-        // POST: Parent
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Register(ParentViewModel Collection)
-        {
-            DBSmartSchoolWebPortalEntities db = new DBSmartSchoolWebPortalEntities();
-            Parent parent = new Parent();
-            parent.Name = Collection.Name;
-            parent.Contact = Collection.Contact;
-            parent.Email = Collection.Email;
-            parent.NIC = Collection.NIC;
-            List<ParentViewModel> list = new List<ParentViewModel>();
-            var students = db.Students.ToList();
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            List<string> list = new List<string>();
+            var students = db.Students.Where(x => x.Status == 1).ToList();
             foreach(var i in students)
             {
-                if(i.RegisterationNumber == Collection.StudentId)
-                {
-                    parent.StudentId = i.Id;
-                }
+                list.Add(i.RegisterationNumber);
             }
-            
-
-            db.Parents.Add(parent);
-            db.SaveChanges();
+            list.Sort();
+            ViewBag.list = new SelectList(list);
             return View();
         }
 
-        // GET: Parent
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        // POST: Parent
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(ParentViewModel Collection)
+        public ActionResult Register(ParentViewModel Collection)
         {
-            DBSmartSchoolWebPortalEntities db = new DBSmartSchoolWebPortalEntities();
-            Parent parent = new Parent();
-            parent.Name = Collection.Name;
-            parent.Contact = Collection.Contact;
-            parent.Email = Collection.Email;
-            parent.NIC = Collection.NIC;
-            List<ParentViewModel> list = new List<ParentViewModel>();
-            var students = db.Students.ToList();
-            foreach (var i in students)
-            {
-                if (i.RegisterationNumber == Collection.StudentId)
-                {
-                    parent.StudentId = i.Id;
-                }
-            }
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            Parent s = new Parent();
+            s.Name = Collection.Name;
+            s.Contact = Collection.Contact;
+            s.NIC = Collection.NIC;
+            s.Email = Collection.Email;
+            var Id = db.Students.Where(x => x.RegisterationNumber == Collection.RegNo).First();
 
-
-            db.Parents.Add(parent);
+            s.StudentId = Id.Id;
+            db.Parents.Add(s);
             db.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
+
+
+        public ActionResult Account(string Message)
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var user = db.Parents.Where(x => x.Id == LoginClass.LoginId).First();
+
+            ViewBag.Name = user.Name;
+            ViewBag.Contact = user.Contact;
+            ViewBag.Email = user.Email;
+            ViewBag.NIC = user.NIC;
+            ViewBag.Message = Message;
             return View();
+        }
+
+        public ActionResult Login(string message)
+        {
+            ViewBag.Message = message;
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Login(Parent Collection)
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var list = db.Parents.ToList();
+            foreach (var i in list)
+            {
+                if (Collection.UserName == i.UserName && Collection.Password == i.Password && i.Status == 1)
+                {
+                    LoginClass.LoginSession = "Parent";
+                    LoginClass.LoginId = i.Id;
+                    return RedirectToAction("Account");
+
+                }
+
+            }
+            string message = "InValid User Name or Password!";
+            return RedirectToAction("Login", "Parent", new { Message = message });
+        }
+
+
+        
+        public ActionResult LogOff()
+        {
+            LoginClass.LoginSession = null;
+            LoginClass.LoginId = 0;
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Parent/Details/5

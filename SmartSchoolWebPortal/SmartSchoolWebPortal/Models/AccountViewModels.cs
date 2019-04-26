@@ -53,6 +53,8 @@ namespace SmartSchoolWebPortal.Models
         [EmailAddress]
         public string Email { get; set; }
 
+
+        public string UserName { get; set; }
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]

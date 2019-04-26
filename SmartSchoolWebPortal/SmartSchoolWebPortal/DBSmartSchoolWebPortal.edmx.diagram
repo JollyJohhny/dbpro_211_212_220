@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="240c800a98ea4be899bb4efc72953c1f" Name="Diagram1">
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.AspNetRole" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.AspNetUser" Width="1.5" PointX="8" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.Class" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.ClassAttendance" Width="1.5" PointX="5.75" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.ClassTimeTable" Width="1.5" PointX="6" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.Complaint" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.Course" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.Enrollment" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.Event" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.Exam" Width="1.5" PointX="3.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.ExamResult" Width="1.5" PointX="6" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.HostelRequest" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.Hostel" Width="1.5" PointX="3.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.Management" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.News" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.Parent" Width="1.5" PointX="3" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.RegisteredCourse" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.RegisteredHostel" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.Section" Width="1.5" PointX="0.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.Student" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.StudentAttendance" Width="1.5" PointX="8" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.StudentFee" Width="1.5" PointX="3" PointY="37.625" IsExpanded="true" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_ClassAttendance_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_ClassTimeTable_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_Enrollment_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_Exam_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_ClassAttendance_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_StudentAttendance_ClassAttendance" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_ClassTimeTable_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_ClassTimeTable_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_Complaints_Parent" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_Complaints_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_Exam_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_RegisteredCourse_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_Enrollment_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_Enrollment_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_ExamResult_Exam" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_ExamResult_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_HostelRequest_Hostels" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_HostelRequest_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_RegisteredHostels_Hostels" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_Parent_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_RegisteredCourse_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_RegisteredHostels_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_StudentAttendance_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_StudentFee_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSmartSchoolWebPortalModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

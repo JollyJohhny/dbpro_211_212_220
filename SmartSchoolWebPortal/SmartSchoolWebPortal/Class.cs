@@ -21,14 +21,11 @@ namespace SmartSchoolWebPortal
             this.ClassTimeTables = new HashSet<ClassTimeTable>();
             this.Enrollments = new HashSet<Enrollment>();
             this.Exams = new HashSet<Exam>();
-            this.Sections = new HashSet<Section>();
         }
     
         public int Id { get; set; }
         public string Title { get; set; }
-        public Nullable<int> CourseId { get; set; }
     
-        public virtual Course Course { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClassAttendance> ClassAttendances { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -37,7 +34,5 @@ namespace SmartSchoolWebPortal
         public virtual ICollection<Enrollment> Enrollments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam> Exams { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Section> Sections { get; set; }
     }
 }

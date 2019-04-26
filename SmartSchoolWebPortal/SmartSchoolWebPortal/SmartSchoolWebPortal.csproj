@@ -197,120 +197,128 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="AspNetRole.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUser.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Class.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="ClassAttendance.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="ClassTimeTable.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Complaint.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-<<<<<<< HEAD
-    <Compile Include="Controllers\StudentController.cs" />
-=======
+    <Compile Include="Controllers\ManagementController.cs" />
     <Compile Include="Controllers\ParentController.cs" />
->>>>>>> a1a0353ad3d48dc9b9ba3c0d7aeaa6c2f08ba11f
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Course.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBSmartSchool.Context.cs">
+    <Compile Include="DBSmartSchoolWebPortal.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBSmartSchool.Context.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBSmartSchool.cs">
+    <Compile Include="DBSmartSchoolWebPortal.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBSmartSchool.Designer.cs">
+    <Compile Include="DBSmartSchoolWebPortal.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBSmartSchool.edmx</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.edmx</DependentUpon>
     </Compile>
     <Compile Include="Enrollment.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Event.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Exam.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="ExamResult.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hostel.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="HostelRequest.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Management.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ClassAttendanceViewModel.cs" />
     <Compile Include="Models\ClassViewModel.cs" />
+    <Compile Include="Models\ComplainViewModel.cs" />
+    <Compile Include="Models\CourseViewModel.cs" />
+    <Compile Include="Models\EnrollmentViewModel.cs" />
+    <Compile Include="Models\ExamResultViewModel.cs" />
+    <Compile Include="Models\ExamViewModel.cs" />
+    <Compile Include="Models\HostelRequestViewModel.cs" />
+    <Compile Include="Models\HostelViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManagementViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-<<<<<<< HEAD
-    <Compile Include="Models\StudentViewModel.cs" />
-=======
+    <Compile Include="Models\NewsViewModel.cs" />
     <Compile Include="Models\ParentViewModel.cs" />
->>>>>>> a1a0353ad3d48dc9b9ba3c0d7aeaa6c2f08ba11f
+    <Compile Include="Models\RegisteredCourseViewModel.cs" />
+    <Compile Include="Models\RegisteredHostelViewModel.cs" />
+    <Compile Include="Models\SectionViewModel.cs" />
+    <Compile Include="Models\StudentAttendanceViewModel.cs" />
+    <Compile Include="Models\StudentFeeViewModel.cs" />
+    <Compile Include="Models\StudentViewModel.cs" />
+    <Compile Include="Models\TimeTableViewModel.cs" />
     <Compile Include="News.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Parent.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LoginClass.cs" />
     <Compile Include="RegisteredCourse.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="RegisteredHostel.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Section.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
-    <Compile Include="Session.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Student.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentAttendance.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentFee.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>DBSmartSchool.tt</DependentUpon>
+      <DependentUpon>DBSmartSchoolWebPortal.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -323,15 +331,15 @@
     <Content Include="css\flaticon.css" />
     <Content Include="css\style.css" />
     <Content Include="css\themify-icons.css" />
-    <Content Include="DBSmartSchool.Context.tt">
+    <Content Include="DBSmartSchoolWebPortal.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBSmartSchool.edmx</DependentUpon>
-      <LastGenOutput>DBSmartSchool.Context.cs</LastGenOutput>
+      <DependentUpon>DBSmartSchoolWebPortal.edmx</DependentUpon>
+      <LastGenOutput>DBSmartSchoolWebPortal.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DBSmartSchool.tt">
+    <Content Include="DBSmartSchoolWebPortal.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBSmartSchool.edmx</DependentUpon>
-      <LastGenOutput>DBSmartSchool.cs</LastGenOutput>
+      <DependentUpon>DBSmartSchoolWebPortal.edmx</DependentUpon>
+      <LastGenOutput>DBSmartSchoolWebPortal.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\flaticon.css" />
@@ -430,13 +438,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="DBSmartSchool.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBSmartSchool.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DBSmartSchool.edmx.diagram">
-      <DependentUpon>DBSmartSchool.edmx</DependentUpon>
-    </Content>
     <Content Include="css\.DS_Store" />
     <Content Include="css\style.css.map" />
     <Content Include="fonts\.DS_Store" />
@@ -455,6 +456,13 @@
     <Content Include="img\features\.DS_Store" />
     <Content Include="img\testimonials\.DS_Store" />
     <Content Include="img\trainer\.DS_Store" />
+    <EntityDeploy Include="DBSmartSchoolWebPortal.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBSmartSchoolWebPortal.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DBSmartSchoolWebPortal.edmx.diagram">
+      <DependentUpon>DBSmartSchoolWebPortal.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\contact.js" />
     <Content Include="Scripts\gmaps.min.js" />
@@ -476,7 +484,9 @@
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\stellar.js" />
     <Content Include="Scripts\theme.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -524,11 +534,24 @@
     <Content Include="scss\_reset.scss" />
     <Content Include="scss\_responsive.scss" />
     <Content Include="scss\_variables.scss" />
-<<<<<<< HEAD
+    <Content Include="Views\Management\Login.cshtml" />
+    <Content Include="Views\Management\Account.cshtml" />
+    <Content Include="Views\Management\Attendance.cshtml" />
+    <Content Include="Views\Management\StudentAttendance.cshtml" />
+    <Content Include="Views\Management\Mark.cshtml" />
+    <Content Include="Views\Management\Marked.cshtml" />
     <Content Include="Views\Student\Register.cshtml" />
-=======
+    <Content Include="Views\Management\STudentRequests.cshtml" />
+    <Content Include="Views\Management\SRequestAccepts.cshtml" />
+    <Content Include="Views\Management\SRequestAcceptEnd.cshtml" />
+    <Content Include="Views\Student\Login.cshtml" />
+    <Content Include="Views\Student\Account.cshtml" />
     <Content Include="Views\Parent\Register.cshtml" />
->>>>>>> a1a0353ad3d48dc9b9ba3c0d7aeaa6c2f08ba11f
+    <Content Include="Views\Parent\Account.cshtml" />
+    <Content Include="Views\Management\PTudentRequests.cshtml" />
+    <Content Include="Views\Management\PRequestAccepts.cshtml" />
+    <Content Include="Views\Management\PRequestAcceptEnd.cshtml" />
+    <Content Include="Views\Parent\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,7 +17,6 @@ namespace SmartSchoolWebPortal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Course()
         {
-            this.Classes = new HashSet<Class>();
             this.ClassTimeTables = new HashSet<ClassTimeTable>();
             this.Exams = new HashSet<Exam>();
             this.RegisteredCourses = new HashSet<RegisteredCourse>();
@@ -25,11 +24,8 @@ namespace SmartSchoolWebPortal
     
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
         public Nullable<int> TotalMarks { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Class> Classes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClassTimeTable> ClassTimeTables { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

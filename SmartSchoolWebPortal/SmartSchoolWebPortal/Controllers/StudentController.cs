@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartSchoolWebPortal.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,38 +9,89 @@ namespace SmartSchoolWebPortal.Controllers
 {
     public class StudentController : Controller
     {
+
+        public ActionResult LogOff()
+        {
+            LoginClass.LoginSession = null;
+            LoginClass.LoginId = 0;
+            return RedirectToAction("Index", "Home");
+        }
+
+
         // GET: Student
         public ActionResult Register()
         {
             return View();
         }
 
-        // GET: Student/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Student/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Student/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [AllowAnonymous]
+        public ActionResult Register(StudentViewModel Collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            Student s = new Student();
+            s.Name = Collection.Name;
+            s.Contact = Collection.Contact;
+            s.RegisterationNumber = Collection.RegisterationNumber;
+            s.Email = Collection.Email;
+            db.Students.Add(s);
+            db.SaveChanges();
+            return View();
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
+        public ActionResult Account(string Message)
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var user = db.Students.Where(x => x.Id == LoginClass.LoginId).First();
+
+            ViewBag.Name = user.Name;
+            ViewBag.Contact = user.Contact;
+            ViewBag.Email = user.Email;
+            ViewBag.RegNo = user.RegisterationNumber;
+            ViewBag.Message = Message;
+            return View();
+        }
+
+        public ActionResult Login(string message)
+        {
+            ViewBag.Message = message;
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Login(StudentViewModel Collection)
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var list = db.Students.ToList();
+            foreach(var i in list)
             {
-                return View();
+                if (Collection.UserName == i.UserName && Collection.Password == i.Password && i.Status == 1)
+                {
+                    LoginClass.LoginSession = "Student";
+                    LoginClass.LoginId = i.Id;
+                    return RedirectToAction("Account");
+
+                }
+
             }
+            string message = "InValid User Name or Password!";
+            return RedirectToAction("Login", "Student", new { Message = message });
+        }
+
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Change(StudentViewModel collection)
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var user = db.Students.Where(x => x.Id == LoginClass.LoginId).First();
+            user.UserName = collection.UserName;
+            user.Password = collection.Password;
+            db.SaveChanges();
+            string message = "User Name & Password Updated!";
+            return RedirectToAction("Account", "Student", new { Message = message });
         }
 
         // GET: Student/Edit/5

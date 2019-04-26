@@ -142,7 +142,6 @@
       <End Role="AspNetRole" EntitySet="AspNetRoles" />
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
     </AssociationSet>
-    <EntitySet Name="sysdiagrams" EntityType="DBSmartSchoolWebPortalModel.sysdiagram" />
   </EntityContainer>
   <EntityType Name="C__MigrationHistory">
     <Key>
@@ -344,7 +343,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="NIC" Type="Int32" />
+    <Property Name="NIC" Type="String" />
     <Property Name="HireDate" Type="DateTime" Precision="0" />
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -799,14 +798,4 @@
     <End Type="DBSmartSchoolWebPortalModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
     <End Type="DBSmartSchoolWebPortalModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
   </Association>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
 </Schema>

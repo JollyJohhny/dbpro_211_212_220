@@ -172,7 +172,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" />
     <Property Name="Contact" Type="nvarchar(max)" />
-    <Property Name="NIC" Type="int" />
+    <Property Name="NIC" Type="nvarchar(max)" />
     <Property Name="HireDate" Type="date" />
     <Property Name="Password" Type="nvarchar(max)" />
     <Property Name="UserName" Type="nvarchar(max)" />
@@ -260,16 +260,6 @@
     <Property Name="Amount" Type="int" />
     <Property Name="Date" Type="date" />
     <Property Name="Status" Type="nvarchar(max)" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="FK_Class_Course">
     <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
@@ -666,7 +656,6 @@
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StudentAttendance" EntityType="Self.StudentAttendance" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StudentFee" EntityType="Self.StudentFee" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Class_Course" Association="Self.FK_Class_Course">
       <End Role="Course" EntitySet="Course" />
       <End Role="Class" EntitySet="Class" />
