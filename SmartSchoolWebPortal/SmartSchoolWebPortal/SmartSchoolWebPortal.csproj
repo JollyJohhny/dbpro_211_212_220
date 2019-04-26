@@ -552,6 +552,8 @@
     <Content Include="Views\Management\PRequestAccepts.cshtml" />
     <Content Include="Views\Management\PRequestAcceptEnd.cshtml" />
     <Content Include="Views\Parent\Login.cshtml" />
+    <Content Include="Views\Management\MAddHostels.cshtml" />
+    <Content Include="Views\Management\MViewHostels.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

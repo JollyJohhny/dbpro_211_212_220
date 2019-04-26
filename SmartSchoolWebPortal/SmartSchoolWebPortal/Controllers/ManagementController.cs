@@ -1,6 +1,7 @@
 ﻿using SmartSchoolWebPortal.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -225,37 +226,68 @@ namespace SmartSchoolWebPortal.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: Management/Create
-        public ActionResult Create()
+        public ActionResult MAddHostels()
         {
             return View();
         }
 
-        // POST: Management/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult MAddHostels(HostelViewModel collection)
         {
-            try
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            Hostel hostel = new Hostel();
+            hostel.Name = collection.HostelName;
+            hostel.Location = collection.HostelLocation;
+            hostel.Details = collection.HostelDetails;
+            hostel.Rent = collection.HostelRent;
+            if (collection.Image != null)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                string filename = Path.GetFileNameWithoutExtension(collection.Image.FileName);
+                string ext = Path.GetExtension(collection.Image.FileName);
+                filename = filename + DateTime.Now.Millisecond.ToString();
+                filename = filename + ext;
+                string filetodb = "/img/Hostels/" + filename;
+                filename = Path.Combine(Server.MapPath("~/img/Hostels"), filename);
+                collection.Image.SaveAs(filename);
+                collection.ImagePath = filetodb;
             }
-            catch
+            else
             {
-                return View();
+                collection.ImagePath = "/img/Hostels/MumtazHall.jpg";
             }
+            hostel.ImagePath = collection.ImagePath;
+            db.Hostels.Add(hostel);
+            db.SaveChanges();
+            return View();
         }
 
-        // GET: Management/Edit/5
-        public ActionResult Edit(int id)
+
+        public ActionResult MViewHostels()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var list = db.Hostels.ToList();
+            List<HostelViewModel> PassList = new List<HostelViewModel>();
+            foreach(var i in list)
+            {
+                HostelViewModel h = new HostelViewModel();
+                h.HostelName = i.Name;
+                h.HostelLocation = i.Location;
+                h.ImagePath = i.ImagePath;
+                h.Id = i.Id;
+                h.HostelRent = Convert.ToInt32(i.Rent);
+                PassList.Add(h);
+            }
+            return View(PassList);
+        }
+
+
+        public ActionResult UpdateHostel(int id)
         {
             return View();
         }
 
-        // POST: Management/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult UpdateHostel(int id, FormCollection collection)
         {
             try
             {

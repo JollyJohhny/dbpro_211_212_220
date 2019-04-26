@@ -8,6 +8,13 @@ namespace SmartSchoolWebPortal.Models
 {
     public class HostelViewModel
     {
+
+        [Display(Name = "Add Image")]
+        public HttpPostedFileBase Image { get; set; }
+        [Display(Name = "Hostel Image")]
+        public string ImagePath { get; set; }
+
+
         [Display(Name = "Id")]
         public int Id { get; set; }
 
@@ -15,6 +22,12 @@ namespace SmartSchoolWebPortal.Models
         public string HostelName { get; set; }
 
         [Display(Name = "Hostel Location")]
-        public int HostelLocation { get; set; }
+        public string HostelLocation { get; set; }
+
+        [Display(Name = "Hostel Details")]
+        public string HostelDetails { get; set; }
+
+        [Display(Name = "Hostel Rent")]
+        public int HostelRent { get; set; }
     }
 }

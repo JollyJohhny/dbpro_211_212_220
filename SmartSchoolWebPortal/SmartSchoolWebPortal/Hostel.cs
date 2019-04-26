@@ -26,6 +26,7 @@ namespace SmartSchoolWebPortal
         public string Location { get; set; }
         public string Details { get; set; }
         public Nullable<int> Rent { get; set; }
+        public string ImagePath { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HostelRequest> HostelRequests { get; set; }

@@ -1,7 +1,7 @@
-﻿@model SmartSchoolWebPortal.Models.StudentViewModel
+﻿@model SmartSchoolWebPortal.Models.HostelViewModel
 
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "AddHostel";
 }
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" href="img/favicon.png" type="image/png" />
-    <title>Student Account</title>
+    <title>Add Hostel</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/flaticon.css" />
@@ -23,19 +23,6 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        if (ViewBag.Message != null)
-        {
-            <script type="text/javascript">
-            window.onload = function () {
-                alert("@ViewBag.Message");
-            };
-            </script>
-        }
-    }
-
     <!--================ Start Header Menu Area =================-->
     <header class="header_area white-header">
         <div class="main_menu">
@@ -57,7 +44,7 @@
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <a class="navbar-brand" href="index.html">
-                        <img class="logo-2" src="img/logo2.png" alt="" />
+                        <img class="logo-2" src="~/img/logo2.png" alt="" />
                     </a>
                     <button class="navbar-toggler"
                             type="button"
@@ -77,7 +64,7 @@
                                 <a class="nav-link" href="~/Home/Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="~/Student/LogOff">Log Off</a>
+                                <a class="nav-link" href="~/Management/LogOff">Log Off</a>
                             </li>
                             <li class="nav-item submenu dropdown">
                                 <a href="#"
@@ -85,19 +72,22 @@
                                    data-toggle="dropdown"
                                    role="button"
                                    aria-haspopup="true"
-                                   aria-expanded="false">Attendance</a>
+                                   aria-expanded="false">Manage Student</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Student/ViewAttendance">View Attendance</a>
+                                        <a class="nav-link" href="~/Management/Attendance">Attendance</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Student/SLeaveRequests">Leave Request</a>
+                                        <a class="nav-link" href="Result.html">Result</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Student/SLeaveView">View Leaves</a>
+                                        <a class="nav-link" href="~/Management/STudentRequests">Register Requests</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Student/SViewTimetable">View Timetable</a>
+                                        <a class="nav-link" href="~/Management/MStudentsRUD">View All</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/Enrollment">EnRollMent</a>
                                     </li>
                                 </ul>
                             </li>
@@ -107,11 +97,11 @@
                                    data-toggle="dropdown"
                                    role="button"
                                    aria-haspopup="true"
-                                   aria-expanded="false">Results</a>
+                                   aria-expanded="false">Manage Parents</a>
                                 <ul class="dropdown-menu">
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Student/SExamResultView">View Exam Result</a>
+                                        <a class="nav-link" href="~/Management/PTudentRequests">Register Requests</a>
                                     </li>
                                 </ul>
                             </li>
@@ -121,28 +111,16 @@
                                    data-toggle="dropdown"
                                    role="button"
                                    aria-haspopup="true"
-                                   aria-expanded="false">Hostels</a>
+                                   aria-expanded="false">Manage Hostels</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Studnet/ViewHostels">View/Request Hostels</a>
+                                        <a class="nav-link" href="~/Management/MAddHostels">Add Hostels</a>
                                     </li>
-
-                                </ul>
-                            </li>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#"
-                                   class="nav-link dropdown-toggle"
-                                   data-toggle="dropdown"
-                                   role="button"
-                                   aria-haspopup="true"
-                                   aria-expanded="false">Student Fee</a>
-                                <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Students/SViewFeeMonthly">Monthly Details</a>
+                                        <a class="nav-link" href="~/Management/MViewHostels">View Hostels</a>
                                     </li>
-
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Student/SAnnualStatus">Annual Status</a>
+                                        <a class="nav-link" href="~/Management/HostelRequests">Hostels Requests</a>
                                     </li>
                                 </ul>
                             </li>
@@ -167,10 +145,10 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="banner_content text-center">
-                            <h2>Student</h2>
+                            <h2>Hostels</h2>
                             <div class="page_link">
 
-                                <a href="#">Account</a>
+                                <a href="#">Add</a>
                             </div>
                         </div>
                     </div>
@@ -183,9 +161,9 @@
     <div class="popular_courses section_gap_top">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-5">
+                <div class="col-lg-8">
                     <div class="main_title">
-                        <h2 class="mb-3">Welcome @ViewBag.Name!</h2>
+                        <h2 class="mb-3">You can Add Hostels From Here!</h2>
                     </div>
                 </div>
             </div>
@@ -197,61 +175,57 @@
                         <div class="col-lg-7">
                             <div class="row clock_sec clockdiv" id="clockdiv">
                                 <div class="col-lg-12">
-                                    <div class="col-md-5">
-                                        <a href="img/elements/g1.jpg" class="img-gal">
-                                            <div class="single-gallery-image" style="background: url(img/elements/junaid.jpg);"></div>
-                                        </a>
-                                    </div>
+                                    <h1 class="mb-3"></h1>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 offset-lg-1">
-                            <div class="register_form">
-                                <p>Name : @ViewBag.Name</p>
-                                <p>Contact : @ViewBag.Contact</p>
-                                <p>Registration No : @ViewBag.RegNo</p>
-                                <p>Email : @ViewBag.Email</p>
-                            </div>
-                        </div>
+                        <center>
+                            <div class="col-lg-4 offset-lg-1">
+                                <div class="register_form">
+                                    <h3>Add Hostel</h3>
+                                    <p>Enter Hostel Information</p>
+                                    @using (Html.BeginForm("MAddHostels", "Management", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                                    {
+                                        <form class="form_area"
+                                              id="myForm"
+                                              action="mail.html"
+                                              method="post">
+                                            <div class="row">
+                                                <div class="col-lg-12 form_group">
+                                                    <input name="HostelName"
+                                                           placeholder="Hostel Name"
+                                                           required=""
+                                                           type="text" />
+                                                    <input name="HostelLocation"
+                                                           placeholder="Hostel Location"
+                                                           required=""
+                                                           type="text" />
+                                                    <input name="HostelDetails"
+                                                           placeholder="Hostel Detail"
+                                                           required=""
+                                                           type="text" />
+                                                    <input name="HostelRent"
+                                                           placeholder="Hostel Rent"
+                                                           required=""
+                                                           type="text" />
+                                                    <input type="file" name="Image" id="Image" />
 
+                                                </div>
+                                                <div class="col-lg-12 text-center">
+                                                    <button type="submit" class="primary-btn">Add</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    }
+                                </div>
+                            </div>
+                        </center>
                     </div>
                 </div>
             </div>
             <!--================ End Registration Area =================-->
-            <!--================ Start Change UserName Area =================-->
-            <center>
-                <div class="col-lg-4 offset-lg-1">
-                    <div class="register_form">
-                        <h3>Change Information</h3>
-                        <p>User Name and Password</p>
-                        @using (Html.BeginForm("Change", "Parent", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                        {
-                            <form class="form_area"
-                                  id="myForm"
-                                  action="mail.html"
-                                  method="post">
-                                <div class="row">
-                                    <div class="col-lg-12 form_group">
-                                        <input name="UserName"
-                                               placeholder="Your New UserName"
-                                               required=""
-                                               type="text" />
-
-                                        <input name="Password"
-                                               placeholder="Your New Password"
-                                               required=""
-                                               type="text" />
-                                    </div>
-                                    <div class="col-lg-12 text-center">
-                                        <button class="primary-btn">Change</button>
-                                    </div>
-                                </div>
-                            </form>
-                        }
-                        </div>
-                </div>
-            </center>
-            <!--================ End Change UserName Area =================-->
+            <!--================ Start Feature Area =================-->
+            <!--================ End Feature Area =================-->
             <!--================ Start footer Area  =================-->
             <!--================ End footer Area  =================-->
             <!-- Optional JavaScript -->
@@ -270,3 +244,5 @@
             <script src="js/theme.js"></script>
 </body>
 </html>
+
+

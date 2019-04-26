@@ -161,6 +161,7 @@
     <EntitySetMapping Name="Hostels">
       <EntityTypeMapping TypeName="DBSmartSchoolWebPortalModel.Hostel">
         <MappingFragment StoreEntitySet="Hostels">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Location" ColumnName="Location" />

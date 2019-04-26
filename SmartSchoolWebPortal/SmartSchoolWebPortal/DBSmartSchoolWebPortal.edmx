@@ -167,6 +167,7 @@
           <Property Name="Location" Type="nvarchar(max)" />
           <Property Name="Details" Type="nvarchar(max)" />
           <Property Name="Rent" Type="int" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Management">
           <Key>
@@ -937,6 +938,7 @@
           <Property Name="Rent" Type="Int32" />
           <NavigationProperty Name="HostelRequests" Relationship="Self.FK_HostelRequest_Hostels" FromRole="Hostels" ToRole="HostelRequest" />
           <NavigationProperty Name="RegisteredHostels" Relationship="Self.FK_RegisteredHostels_Hostels" FromRole="Hostels" ToRole="RegisteredHostels" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Management">
           <Key>
@@ -970,7 +972,7 @@
           <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NIC" Type="String" />
+          <Property Name="NIC" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="StudentId" Type="Int32" />
           <Property Name="Status" Type="Int32" />
@@ -1674,6 +1676,7 @@
           <EntitySetMapping Name="Hostels">
             <EntityTypeMapping TypeName="DBSmartSchoolWebPortalModel.Hostel">
               <MappingFragment StoreEntitySet="Hostels">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Location" ColumnName="Location" />

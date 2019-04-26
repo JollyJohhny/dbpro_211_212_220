@@ -162,6 +162,7 @@
     <Property Name="Location" Type="nvarchar(max)" />
     <Property Name="Details" Type="nvarchar(max)" />
     <Property Name="Rent" Type="int" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Management">
     <Key>
