@@ -1,11 +1,24 @@
 ﻿@model IEnumerable<SmartSchoolWebPortal.Models.StudentViewModel>
 
 @{
-    ViewBag.Title = "StudentAttendance";
+    ViewBag.Title = "StudentRequest";
 }
 
 <body>
 
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        if (ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+            </script>
+        }
+    }
     <!--================ Start Header Menu Area =================-->
     <header class="header_area white-header">
         <div class="main_menu">
