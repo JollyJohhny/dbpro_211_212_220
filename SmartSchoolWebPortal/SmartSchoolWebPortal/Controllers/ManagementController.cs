@@ -47,7 +47,7 @@ namespace SmartSchoolWebPortal.Controllers
             return View();
         }
 
-        public ActionResult Account()
+        public ActionResult Account(string message)
         {
             DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
             var admin = db.Managements.First();
@@ -55,7 +55,8 @@ namespace SmartSchoolWebPortal.Controllers
             ViewBag.Contact = admin.Contact;
             ViewBag.CNIC = admin.NIC;
             ViewBag.Email = admin.Email;
-            
+
+            ViewBag.Message = message;
             return View();
         }
 
@@ -283,7 +284,15 @@ namespace SmartSchoolWebPortal.Controllers
 
         public ActionResult UpdateHostel(int id)
         {
-            return View();
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var hostel = db.Hostels.Where(x => x.Id == id).First();
+            HostelViewModel h = new HostelViewModel();
+            h.HostelName = hostel.Name;
+            h.HostelLocation = hostel.Location;
+            h.HostelRent = Convert.ToInt32(hostel.Rent);
+            h.HostelDetails = hostel.Details;
+
+            return View(h);
         }
 
         [HttpPost]
@@ -301,26 +310,21 @@ namespace SmartSchoolWebPortal.Controllers
             }
         }
 
-        // GET: Management/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Management/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult DeleteHostel(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var hostel = db.Hostels.Where(x => x.Id == id).First();
+            db.Entry(hostel).State = System.Data.Entity.EntityState.Deleted;
+            
+            db.SaveChanges();
+            string message = "Hostel is Deleted";
+            return RedirectToAction("Account", "Management", new { Message = message });
         }
     }
 }
