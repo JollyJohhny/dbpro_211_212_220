@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,6 +12,8 @@ namespace SmartSchoolWebPortal.Controllers
 {
     public class ManagementController : Controller
     {
+        public static string MailUserName= "zoharasheed2345@gmail.com";
+        public static string MailPassword = "JUNAIDTHECODER";
 
         public static int ClassIdGlobal = 0;
         public static int StudentIdGlobal = 0;
@@ -47,7 +51,7 @@ namespace SmartSchoolWebPortal.Controllers
             return View();
         }
 
-        public ActionResult Account()
+        public ActionResult Account(string message)
         {
             DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
             var admin = db.Managements.First();
@@ -55,7 +59,8 @@ namespace SmartSchoolWebPortal.Controllers
             ViewBag.Contact = admin.Contact;
             ViewBag.CNIC = admin.NIC;
             ViewBag.Email = admin.Email;
-            
+
+            ViewBag.Message = message;
             return View();
         }
 
@@ -135,7 +140,7 @@ namespace SmartSchoolWebPortal.Controllers
             return RedirectToAction("StudentAttendance");
         }
 
-        public ActionResult STudentRequests()
+        public ActionResult STudentRequests(string message)
         {
             DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
             var list = db.Students.Where(x => x.Status != 1).ToList();
@@ -148,6 +153,7 @@ namespace SmartSchoolWebPortal.Controllers
                 s.Id = i.Id;
                 PassList.Add(s);
             }
+            ViewBag.Message = message;
 
             return View(PassList);
         }
@@ -174,10 +180,32 @@ namespace SmartSchoolWebPortal.Controllers
             student.Password = collection.Password;
             student.Status = 1;
             db.SaveChanges();
-            return RedirectToAction("STudentRequests");
+
+            //Sending mail to Student with his/her UserName and Password
+            using (MailMessage mailMessage = new MailMessage(MailUserName, student.Email))
+            {
+                mailMessage.Subject = "Hi!";
+                mailMessage.Body = "This mail is from Smart School Web Portal admin! Your User Name is " + collection.UserName + " and Password is " + collection.Password;
+
+                mailMessage.IsBodyHtml = false;
+                using (SmtpClient smtp = new SmtpClient())
+                {
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.EnableSsl = true;
+                    NetworkCredential NetworkCred = new NetworkCredential(MailUserName, MailPassword);
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = NetworkCred;
+                    smtp.Port = 587;
+                    smtp.Send(mailMessage);
+
+                }
+            }
+
+            string message = "Email Sent to " + student.UserName + " !";
+            return RedirectToAction("STudentRequests", "Management", new { Message = message });
         }
 
-        public ActionResult PTudentRequests()
+        public ActionResult PTudentRequests(string message)
         {
             DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
             var list = db.Parents.Where(x => x.Status != 1).ToList();
@@ -190,6 +218,7 @@ namespace SmartSchoolWebPortal.Controllers
                 s.Id = i.Id;
                 PassList.Add(s);
             }
+            ViewBag.Message = message;
 
             return View(PassList);
         }
@@ -216,7 +245,33 @@ namespace SmartSchoolWebPortal.Controllers
             parent.Password = collection.Password;
             parent.Status = 1;
             db.SaveChanges();
-            return RedirectToAction("PTudentRequests");
+
+            //Sending mail to Parent with his/her UserName and Password
+            using (MailMessage mailMessage = new MailMessage(MailUserName, parent.Email))
+            {
+                mailMessage.Subject = "Hi!";
+                mailMessage.Body = "This mail is from Smart School Web Portal admin! Your User Name is " + collection.UserName + " and Password is " + collection.Password;
+
+                mailMessage.IsBodyHtml = false;
+                using (SmtpClient smtp = new SmtpClient())
+                {
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.EnableSsl = true;
+                    NetworkCredential NetworkCred = new NetworkCredential(MailUserName, MailPassword);
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = NetworkCred;
+                    smtp.Port = 587;
+                    smtp.Send(mailMessage);
+
+                }
+            }
+
+
+           
+
+            string message = "Email Sent to " + parent.UserName + " !";
+            return RedirectToAction("PTudentRequests", "Management", new { Message = message });
+
         }
 
         public ActionResult LogOff()
@@ -283,7 +338,15 @@ namespace SmartSchoolWebPortal.Controllers
 
         public ActionResult UpdateHostel(int id)
         {
-            return View();
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var hostel = db.Hostels.Where(x => x.Id == id).First();
+            HostelViewModel h = new HostelViewModel();
+            h.HostelName = hostel.Name;
+            h.HostelLocation = hostel.Location;
+            h.HostelRent = Convert.ToInt32(hostel.Rent);
+            h.HostelDetails = hostel.Details;
+
+            return View(h);
         }
 
         [HttpPost]
@@ -301,26 +364,21 @@ namespace SmartSchoolWebPortal.Controllers
             }
         }
 
-        // GET: Management/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Management/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult DeleteHostel(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var hostel = db.Hostels.Where(x => x.Id == id).First();
+            db.Entry(hostel).State = System.Data.Entity.EntityState.Deleted;
+            
+            db.SaveChanges();
+            string message = "Hostel is Deleted";
+            return RedirectToAction("Account", "Management", new { Message = message });
         }
     }
 }
