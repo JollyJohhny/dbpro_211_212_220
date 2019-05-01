@@ -304,6 +304,11 @@ namespace SmartSchoolWebPortal.Controllers
             return RedirectToAction("Account");
         }
 
+        public ActionResult SViewTimetable()
+        {
+            return View();
+        }
+
         // GET: Student/Edit/5
         public ActionResult Edit(int id)
         {

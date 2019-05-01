@@ -104,6 +104,11 @@ namespace SmartSchoolWebPortal.Controllers
             return View(PassList);
         }
 
+        public ActionResult SViewTimetable()
+        {
+            return View();
+        }
+
 
         public ActionResult ComplaintStatus()
         {
