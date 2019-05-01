@@ -91,6 +91,28 @@ namespace SmartSchoolWebPortal.Controllers
             return RedirectToAction("Account", "Student", new { Message = message });
         }
 
+        public ActionResult ViewEvents()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.Events.ToList();
+            List<EventViewModel> PassList = new List<EventViewModel>();
+            foreach (var i in List)
+            {
+                
+                    EventViewModel e = new EventViewModel();
+                    e.Description = i.Desciption;
+                    e.Id = i.Id;
+                    e.Date = Convert.ToDateTime(i.Date);
+                    PassList.Add(e);
+                
+                
+            }
+
+            return View(PassList);
+        }
+
+
+
         public ActionResult Account(string Message)
         {
             DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
@@ -164,6 +186,46 @@ namespace SmartSchoolWebPortal.Controllers
             return RedirectToAction("Login", "Student", new { Message = message });
         }
 
+        public ActionResult ViewRegCourses()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.RegisteredCourses.Where(x => x.StudentId == LoginClass.LoginId).ToList();
+            List<RegisteredCourseViewModel> PassList = new List<RegisteredCourseViewModel>();
+            foreach (var i in List)
+            {
+                RegisteredCourseViewModel r = new RegisteredCourseViewModel();
+                var c = db.Courses.Where(x => x.Id == i.CourseId).First();
+                r.Name = c.Title;
+                r.Date =Convert.ToDateTime(i.RegisterationDate);
+                PassList.Add(r);
+            }
+            return View(PassList);
+        }
+
+        public ActionResult SLeaveView()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.LeavesRequests.Where(x => x.StudentId == LoginClass.LoginId).ToList();
+            List<LeaveViewModel> PassList = new List<LeaveViewModel>();
+            foreach(var i in List)
+            {
+                LeaveViewModel l = new LeaveViewModel();
+                l.Id = i.Id;
+                l.Reason = i.Reason;
+                l.Date =Convert.ToDateTime(i.Date);
+                if(i.Status == 1)
+                {
+                    l.Status = "Approved";
+                }
+                else
+                {
+                    l.Status = "Pending";
+                }
+                PassList.Add(l);
+            }
+            return View(PassList);
+        }
+
 
 
         [HttpPost]
@@ -197,6 +259,51 @@ namespace SmartSchoolWebPortal.Controllers
             return View(PassList);
         }
 
+
+        public ActionResult ComplaintStatus()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.Complaints.Where(x => x.StudentId == LoginClass.LoginId).ToList();
+            List<ComplainViewModel> PassList = new List<ComplainViewModel>();
+            foreach(var i in List)
+            {
+                ComplainViewModel c = new ComplainViewModel();
+                c.Details = i.Details;
+                if(i.Status !=1)
+                {
+                    c.Status = "UnNoticed";
+                }
+                else
+                {
+                    c.Status = "Noticed!";
+                }
+                c.Date =Convert.ToDateTime(i.Date);
+                PassList.Add(c);
+            }
+            return View(PassList);
+        }
+
+        public ActionResult AddComplaint()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult AddComplaint(ComplainViewModel collection)
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            Complaint complaint = new Complaint();
+            complaint.StudentId = LoginClass.LoginId;
+            complaint.Details = collection.Details;
+            complaint.Date = DateTime.Now;
+            db.Complaints.Add(complaint);
+            db.SaveChanges();
+
+            return RedirectToAction("Account");
+        }
+
         // GET: Student/Edit/5
         public ActionResult Edit(int id)
         {
@@ -218,6 +325,8 @@ namespace SmartSchoolWebPortal.Controllers
                 return View();
             }
         }
+
+
 
         // GET: Student/Delete/5
         public ActionResult Delete(int id)

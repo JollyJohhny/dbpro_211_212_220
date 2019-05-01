@@ -89,17 +89,17 @@
                                 </ul>
                             </li>
                             <li class="nav-item submenu dropdown">
-                                <a href="#"
+                                <a href="~/Parent/ViewRegCourses"
                                    class="nav-link dropdown-toggle"
                                    data-toggle="dropdown"
                                    role="button"
                                    aria-haspopup="true"
-                                   aria-expanded="false">Results</a>
+                                   aria-expanded="false">Registered Courses</a>
                                 <ul class="dropdown-menu">
-
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Parent/SExamResultView">View Exam Result</a>
+                                        <a class="nav-link" href="~/Parent/ViewRegCourses">View</a>
                                     </li>
+
                                 </ul>
                             </li>
                             <li class="nav-item submenu dropdown">
@@ -139,7 +139,7 @@
                                    data-toggle="dropdown"
                                    role="button"
                                    aria-haspopup="true"
-                                   aria-expanded="false">View News/Events</a>
+                                   aria-expanded="false">Other</a>
                                 <ul class="dropdown-menu">
 
                                     <li class="nav-item">
@@ -147,6 +147,12 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="~/Parent/ViewEvents">View Events</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/AddComplaint">Add Complaint</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/ComplaintStatus">Complaint Status</a>
                                     </li>
                                 </ul>
                             </li>
@@ -199,7 +205,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <center>
-                            <div class="col-lg-6 offset-lg-6">
+                            <div class="col-lg-8 offset-lg-6">
                                 <div class="register_form">
                                     <h3>Enter Details</h3>
                                     @using (Html.BeginForm("PLeaveRequests", "Parent", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))

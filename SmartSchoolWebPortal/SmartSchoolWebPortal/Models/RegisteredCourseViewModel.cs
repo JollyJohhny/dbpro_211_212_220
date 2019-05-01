@@ -15,9 +15,12 @@ namespace SmartSchoolWebPortal.Models
         public int CourseId { get; set; }
 
         [Display(Name = "Student Id")]
-        public int StudentId { get; set; }
+        public string StudentId { get; set; }
 
         [Display(Name = "Registration Date")]
         public DateTime Date { get; set; }
+
+        [Display(Name = "Course Name")]
+        public string Name { get; set; }
     }
 }

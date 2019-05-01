@@ -88,6 +88,8 @@
     <EntitySetMapping Name="Complaints">
       <EntityTypeMapping TypeName="DBSmartSchoolWebPortalModel.Complaint">
         <MappingFragment StoreEntitySet="Complaints">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="StudentId" ColumnName="StudentId" />
           <ScalarProperty Name="ParentId" ColumnName="ParentId" />

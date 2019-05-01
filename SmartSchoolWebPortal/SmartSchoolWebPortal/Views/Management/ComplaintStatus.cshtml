@@ -1,29 +1,10 @@
-﻿@model SmartSchoolWebPortal.Models.HostelViewModel
+﻿@model IEnumerable<SmartSchoolWebPortal.Models.ComplainViewModel>
 
 @{
-    ViewBag.Title = "AddHostel";
+    ViewBag.Title = "ComplaintStatus";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="icon" href="img/favicon.png" type="image/png" />
-    <title>Add Hostel</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/flaticon.css" />
-    <link rel="stylesheet" href="css/themify-icons.css" />
-    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" />
-    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
-    <!-- main css -->
-    <link rel="stylesheet" href="css/style.css" />
-</head>
 <body>
-    <!--================ Start Header Menu Area =================-->
     <header class="header_area white-header">
         <div class="main_menu">
             <div class="search_input" id="search_input_box">
@@ -80,6 +61,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="~/Management/RegisterCourse">Register Course</a>
                                     </li>
+
                                     <li class="nav-item">
                                         <a class="nav-link" href="~/Management/STudentRequests">Register Requests</a>
                                     </li>
@@ -91,6 +73,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="~/Management/Enrollment">EnRollMent</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/ComplaintStatus">Complaints</a>
                                     </li>
                                 </ul>
                             </li>
@@ -176,10 +161,10 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="banner_content text-center">
-                            <h2>Hostels</h2>
+                            <h2>News</h2>
                             <div class="page_link">
 
-                                <a href="#">Add</a>
+                                <a href="#">List</a>
                             </div>
                         </div>
                     </div>
@@ -187,93 +172,48 @@
             </div>
         </div>
     </section>
-    <!--================End Home Banner Area =================-->
-    <!--================ Start Popular Courses Area =================-->
-    <div class="popular_courses section_gap_top">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="main_title">
-                        <h2 class="mb-3">You can Add Hostels From Here!</h2>
-                    </div>
-                </div>
-            </div>
-            <!--================ End Popular Courses Area =================-->
-            <!--================ Start Registration Area =================-->
-            <div class="section_gap registration_area">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-7">
-                            <div class="row clock_sec clockdiv" id="clockdiv">
-                                <div class="col-lg-12">
-                                    <h1 class="mb-3"></h1>
-                                </div>
-                            </div>
-                        </div>
-                        <center>
-                            <div class="col-lg-4 offset-lg-1">
-                                <div class="register_form">
-                                    <h3>Add Hostel</h3>
-                                    <p>Enter Hostel Information</p>
-                                    @using (Html.BeginForm("MAddHostels", "Management", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
-                                    {
-                                        <form class="form_area"
-                                              id="myForm"
-                                              action="mail.html"
-                                              method="post">
-                                            <div class="row">
-                                                <div class="col-lg-12 form_group">
-                                                    <input name="HostelName"
-                                                           placeholder="Hostel Name"
-                                                           required=""
-                                                           type="text" />
-                                                    <input name="HostelLocation"
-                                                           placeholder="Hostel Location"
-                                                           required=""
-                                                           type="text" />
-                                                    <input name="HostelDetails"
-                                                           placeholder="Hostel Detail"
-                                                           required=""
-                                                           type="text" />
-                                                    <input name="HostelRent"
-                                                           placeholder="Hostel Rent"
-                                                           required=""
-                                                           type="text" />
-                                                    <input type="file" name="Image" id="Image" />
 
-                                                </div>
-                                                <div class="col-lg-12 text-center">
-                                                    <button type="submit" class="primary-btn">Add</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    }
-                                </div>
-                            </div>
-                        </center>
-                    </div>
-                </div>
-            </div>
-            <!--================ End Registration Area =================-->
-            <!--================ Start Feature Area =================-->
-            <!--================ End Feature Area =================-->
-            <!--================ Start footer Area  =================-->
-            <!--================ End footer Area  =================-->
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="js/jquery-3.2.1.min.js"></script>
-            <script src="js/popper.js"></script>
-            <script src="js/bootstrap.min.js"></script>
-            <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-            <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-            <script src="js/owl-carousel-thumb.min.js"></script>
-            <script src="js/jquery.ajaxchimp.min.js"></script>
-            <script src="js/mail-script.js"></script>
-            <!--gmaps Js-->
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-            <script src="js/gmaps.min.js"></script>
-            <script src="js/theme.js"></script>
+
+
+
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Details)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    <a href="~/Management/ComplainNotice/@item.Id" class="genric-btn primary circle arrow">Notice<span class="ti-arrow-right"></span></a>
+                </td>
+
+            </tr>
+        }
+
+    </table>
 </body>
-</html>
+
+
 
 

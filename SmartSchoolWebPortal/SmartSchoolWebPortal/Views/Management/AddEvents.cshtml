@@ -1,7 +1,7 @@
-﻿@model SmartSchoolWebPortal.Models.HostelViewModel
+﻿@model SmartSchoolWebPortal.Models.EventViewModel
 
 @{
-    ViewBag.Title = "AddHostel";
+    ViewBag.Title = "AddEvent";
 }
 
 <!DOCTYPE html>
@@ -176,7 +176,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="banner_content text-center">
-                            <h2>Hostels</h2>
+                            <h2>Event</h2>
                             <div class="page_link">
 
                                 <a href="#">Add</a>
@@ -194,7 +194,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="main_title">
-                        <h2 class="mb-3">You can Add Hostels From Here!</h2>
+                        <h2 class="mb-3">You can Add Event From Here!</h2>
                     </div>
                 </div>
             </div>
@@ -211,11 +211,11 @@
                             </div>
                         </div>
                         <center>
-                            <div class="col-lg-4 offset-lg-1">
+                            <div class="col-lg-6 offset-lg-1">
                                 <div class="register_form">
-                                    <h3>Add Hostel</h3>
-                                    <p>Enter Hostel Information</p>
-                                    @using (Html.BeginForm("MAddHostels", "Management", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                                    <h3>Add Event</h3>
+                                    <p>Enter Event Information</p>
+                                    @using (Html.BeginForm("AddEvents", "Management", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
                                     {
                                         <form class="form_area"
                                               id="myForm"
@@ -223,23 +223,15 @@
                                               method="post">
                                             <div class="row">
                                                 <div class="col-lg-12 form_group">
-                                                    <input name="HostelName"
-                                                           placeholder="Hostel Name"
+                                                    <input name="Description"
+                                                           placeholder="News Description"
                                                            required=""
                                                            type="text" />
-                                                    <input name="HostelLocation"
-                                                           placeholder="Hostel Location"
+                                                    <input name="Date"
+                                                           placeholder="Event Date"
                                                            required=""
-                                                           type="text" />
-                                                    <input name="HostelDetails"
-                                                           placeholder="Hostel Detail"
-                                                           required=""
-                                                           type="text" />
-                                                    <input name="HostelRent"
-                                                           placeholder="Hostel Rent"
-                                                           required=""
-                                                           type="text" />
-                                                    <input type="file" name="Image" id="Image" />
+                                                           type="date" />
+
 
                                                 </div>
                                                 <div class="col-lg-12 text-center">
@@ -275,5 +267,3 @@
             <script src="js/theme.js"></script>
 </body>
 </html>
-
-

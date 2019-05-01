@@ -280,6 +280,7 @@
     <Compile Include="Models\ComplainViewModel.cs" />
     <Compile Include="Models\CourseViewModel.cs" />
     <Compile Include="Models\EnrollmentViewModel.cs" />
+    <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\ExamResultViewModel.cs" />
     <Compile Include="Models\ExamViewModel.cs" />
     <Compile Include="Models\HostelRequestViewModel.cs" />
@@ -584,6 +585,23 @@
     <Content Include="Views\Management\UnPublishNews.cshtml" />
     <Content Include="Views\Student\ViewNews.cshtml" />
     <Content Include="Views\Parent\ViewNews.cshtml" />
+    <Content Include="Views\Management\AddEvents.cshtml" />
+    <Content Include="Views\Management\ViewEvents.cshtml" />
+    <Content Include="Views\Management\DeleteEvent.cshtml" />
+    <Content Include="Views\Management\DeleteNews.cshtml" />
+    <Content Include="Views\Student\ViewEvents.cshtml" />
+    <Content Include="Views\Parent\ViewEvents.cshtml" />
+    <Content Include="Views\Student\SLeaveView.cshtml" />
+    <Content Include="Views\Parent\SLeaveView.cshtml" />
+    <Content Include="Views\Management\RegisterCourse.cshtml" />
+    <Content Include="Views\Student\ViewRegCourses.cshtml" />
+    <Content Include="Views\Parent\ViewRegCourses.cshtml" />
+    <Content Include="Views\Parent\AddComplaint.cshtml" />
+    <Content Include="Views\Student\AddComplaint.cshtml" />
+    <Content Include="Views\Student\ComplaintStatus.cshtml" />
+    <Content Include="Views\Parent\ComplaintStatus.cshtml" />
+    <Content Include="Views\Management\ComplaintStatus.cshtml" />
+    <Content Include="Views\Management\ComplainNotice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

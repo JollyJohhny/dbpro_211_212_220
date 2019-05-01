@@ -28,12 +28,41 @@ namespace SmartSchoolWebPortal.Controllers
             return View(List);
         }
 
+
+        public ActionResult SLeaveView()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var parent = db.Parents.Where(x => x.Id == LoginClass.LoginId).First();
+            var student = db.Students.Where(x => x.Id == parent.StudentId).First();
+            var List = db.LeavesRequests.Where(x => x.StudentId == student.Id).ToList();
+            List<LeaveViewModel> PassList = new List<LeaveViewModel>();
+            foreach (var i in List)
+            {
+                LeaveViewModel l = new LeaveViewModel();
+                l.Id = i.Id;
+                l.Reason = i.Reason;
+                l.Date = Convert.ToDateTime(i.Date);
+                if (i.Status == 1)
+                {
+                    l.Status = "Approved";
+                }
+                else
+                {
+                    l.Status = "Pending";
+                }
+                PassList.Add(l);
+            }
+            return View(PassList);
+        }
+
         public ActionResult RequestHostel(int id)
         {
             DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var parent = db.Parents.Where(x => x.Id == LoginClass.LoginId).First();
+            var student = db.Students.Where(x => x.Id == parent.StudentId).First();
             HostelRequest request = new HostelRequest();
             request.HostelId = id;
-            request.ParentId = LoginClass.LoginId;
+            request.StudentId = student.Id;
             db.HostelRequests.Add(request);
             db.SaveChanges();
 
@@ -74,6 +103,72 @@ namespace SmartSchoolWebPortal.Controllers
             }
             return View(PassList);
         }
+
+
+        public ActionResult ComplaintStatus()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.Complaints.Where(x => x.ParentId == LoginClass.LoginId).ToList();
+            List<ComplainViewModel> PassList = new List<ComplainViewModel>();
+            foreach (var i in List)
+            {
+                ComplainViewModel c = new ComplainViewModel();
+                c.Details = i.Details;
+                if (i.Status != 1)
+                {
+                    c.Status = "UnNoticed";
+                }
+                else
+                {
+                    c.Status = "Noticed!";
+                }
+                c.Date = Convert.ToDateTime(i.Date);
+                PassList.Add(c);
+            }
+            return View(PassList);
+        }
+
+
+        public ActionResult AddComplaint()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult AddComplaint(ComplainViewModel collection)
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            Complaint complaint = new Complaint();
+            complaint.ParentId = LoginClass.LoginId;
+            complaint.Details = collection.Details;
+
+            db.Complaints.Add(complaint);
+            db.SaveChanges();
+
+            return RedirectToAction("Account");
+        }
+
+
+        public ActionResult ViewRegCourses()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var parent = db.Parents.Where(x => x.Id == LoginClass.LoginId).First();
+            var List = db.RegisteredCourses.Where(x => x.StudentId == parent.StudentId).ToList();
+            List<RegisteredCourseViewModel> PassList = new List<RegisteredCourseViewModel>();
+            foreach (var i in List)
+            {
+                RegisteredCourseViewModel r = new RegisteredCourseViewModel();
+                var c = db.Courses.Where(x => x.Id == i.CourseId).First();
+                r.Name = c.Title;
+                r.Date = Convert.ToDateTime(i.RegisterationDate);
+                PassList.Add(r);
+            }
+            return View(PassList);
+        }
+
+
         public ActionResult Register()
         {
             DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
@@ -209,6 +304,27 @@ namespace SmartSchoolWebPortal.Controllers
                 PassList.Add(n);
 
             }
+            return View(PassList);
+        }
+
+
+        public ActionResult ViewEvents()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.Events.ToList();
+            List<EventViewModel> PassList = new List<EventViewModel>();
+            foreach (var i in List)
+            {
+
+                EventViewModel e = new EventViewModel();
+                e.Description = i.Desciption;
+                e.Id = i.Id;
+                e.Date = Convert.ToDateTime(i.Date);
+                PassList.Add(e);
+
+
+            }
+
             return View(PassList);
         }
 

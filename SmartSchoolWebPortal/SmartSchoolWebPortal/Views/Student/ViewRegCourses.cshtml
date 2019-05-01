@@ -1,7 +1,7 @@
-﻿@model IEnumerable<SmartSchoolWebPortal.Models.HostelViewModel>
+﻿@model IEnumerable<SmartSchoolWebPortal.Models.RegisteredCourseViewModel>
 
 @{
-    ViewBag.Title = "ViewHostels";
+    ViewBag.Title = "ViewRegCourses";
 }
 
 <body>
@@ -171,22 +171,15 @@
         </div>
     </section>
 
+
     <table class="table">
         <tr>
+
             <th>
-                @Html.DisplayNameFor(model => model.ImagePath)
+                @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HostelName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HostelLocation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HostelDetails)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HostelRent)
+                @Html.DisplayNameFor(model => model.Date)
             </th>
             <th></th>
         </tr>
@@ -194,32 +187,17 @@
         @foreach (var item in Model)
         {
             <tr>
+
                 <td>
-                    <img src="@item.ImagePath" style="width:160px;height:180px;border-radius:50%" />
+                    @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.HostelName)
+                    @Html.DisplayFor(modelItem => item.Date)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HostelLocation)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HostelDetails)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HostelRent)
-                </td>
-                <td>
-                    <div class="button-group-area mt-40">
-                        <a href="/Student/RequestHostel/@item.Id" class="genric-btn primary circle arrow">Request Hostel<span class="ti-arrow-right"></span></a>
-                    </div>
-                </td>
+
             </tr>
         }
 
     </table>
 
 </body>
-
-
-

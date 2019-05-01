@@ -1,7 +1,7 @@
-﻿@model SmartSchoolWebPortal.Models.HostelViewModel
+﻿@model SmartSchoolWebPortal.Models.ComplainViewModel
 
 @{
-    ViewBag.Title = "AddHostel";
+    ViewBag.Title = "AddComplaint";
 }
 
 <!DOCTYPE html>
@@ -44,7 +44,7 @@
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <a class="navbar-brand" href="index.html">
-                        <img class="logo-2" src="~/img/logo2.png" alt="" />
+                        <img class="logo-2" src="img/logo2.png" alt="" />
                     </a>
                     <button class="navbar-toggler"
                             type="button"
@@ -64,7 +64,7 @@
                                 <a class="nav-link" href="~/Home/Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="~/Management/LogOff">Log Off</a>
+                                <a class="nav-link" href="~/Student/LogOff">Log Off</a>
                             </li>
                             <li class="nav-item submenu dropdown">
                                 <a href="#"
@@ -72,26 +72,34 @@
                                    data-toggle="dropdown"
                                    role="button"
                                    aria-haspopup="true"
-                                   aria-expanded="false">Manage Student</a>
+                                   aria-expanded="false">Attendance</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/Attendance">Attendance</a>
+                                        <a class="nav-link" href="~/Student/ViewAttendance">View Attendance</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/RegisterCourse">Register Course</a>
+                                        <a class="nav-link" href="~/Student/SLeaveRequests">Leave Request</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/STudentRequests">Register Requests</a>
+                                        <a class="nav-link" href="~/Student/SLeaveView">View Leaves</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/LeaveRequest">Leave Requests</a>
+                                        <a class="nav-link" href="~/Student/SViewTimetable">View Timetable</a>
                                     </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="~/Student/ViewRegCourses"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Registered Courses</a>
+                                <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/ViewAllStudent">View All</a>
+                                        <a class="nav-link" href="~/Student/ViewRegCourses">View</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/Enrollment">EnRollMent</a>
-                                    </li>
+
                                 </ul>
                             </li>
                             <li class="nav-item submenu dropdown">
@@ -100,15 +108,12 @@
                                    data-toggle="dropdown"
                                    role="button"
                                    aria-haspopup="true"
-                                   aria-expanded="false">Manage Parents</a>
+                                   aria-expanded="false">Hostels</a>
                                 <ul class="dropdown-menu">
-
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/PTudentRequests">Register Requests</a>
+                                        <a class="nav-link" href="~/Student/ViewHostels">View/Request Hostels</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/ViewAllParent">View All</a>
-                                    </li>s
+
                                 </ul>
                             </li>
                             <li class="nav-item submenu dropdown">
@@ -117,44 +122,41 @@
                                    data-toggle="dropdown"
                                    role="button"
                                    aria-haspopup="true"
-                                   aria-expanded="false">Manage Hostels</a>
+                                   aria-expanded="false">Student Fee</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/MAddHostels">Add Hostels</a>
+                                        <a class="nav-link" href="~/Students/SViewFeeMonthly">Monthly Details</a>
                                     </li>
+
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/MViewHostels">View Hostels</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/HostelRequests">Hostels Requests</a>
+                                        <a class="nav-link" href="~/Student/SAnnualStatus">Annual Status</a>
                                     </li>
                                 </ul>
                             </li>
+
                             <li class="nav-item submenu dropdown">
                                 <a href="#"
                                    class="nav-link dropdown-toggle"
                                    data-toggle="dropdown"
                                    role="button"
                                    aria-haspopup="true"
-                                   aria-expanded="false">News/Events</a>
+                                   aria-expanded="false">Other</a>
                                 <ul class="dropdown-menu">
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/AddNews">Add News</a>
+                                        <a class="nav-link" href="~/Student/ViewNews">View News</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/Viewnews">View News</a>
+                                        <a class="nav-link" href="~/Student/ViewEvents">View Events</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/AddEvents">Add Events</a>
+                                        <a class="nav-link" href="~/Student/AddComplaint">Add Complaint</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Management/ViewEvents">Update Events</a>
+                                        <a class="nav-link" href="~/Student/ComplaintStatus">Complaint Status</a>
                                     </li>
                                 </ul>
                             </li>
-
-
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link search" id="search">
@@ -176,7 +178,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="banner_content text-center">
-                            <h2>Hostels</h2>
+                            <h2>Complaint</h2>
                             <div class="page_link">
 
                                 <a href="#">Add</a>
@@ -194,7 +196,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="main_title">
-                        <h2 class="mb-3">You can Add Hostels From Here!</h2>
+                        <h2 class="mb-3">You can Add Complaint From Here!</h2>
                     </div>
                 </div>
             </div>
@@ -211,11 +213,11 @@
                             </div>
                         </div>
                         <center>
-                            <div class="col-lg-4 offset-lg-1">
+                            <div class="col-lg-8 offset-lg-1">
                                 <div class="register_form">
-                                    <h3>Add Hostel</h3>
-                                    <p>Enter Hostel Information</p>
-                                    @using (Html.BeginForm("MAddHostels", "Management", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                                    <h3>Add Complaint</h3>
+                                    <p>Enter Details</p>
+                                    @using (Html.BeginForm("AddComplaint", "Student", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
                                     {
                                         <form class="form_area"
                                               id="myForm"
@@ -223,23 +225,12 @@
                                               method="post">
                                             <div class="row">
                                                 <div class="col-lg-12 form_group">
-                                                    <input name="HostelName"
-                                                           placeholder="Hostel Name"
-                                                           required=""
-                                                           type="text" />
-                                                    <input name="HostelLocation"
-                                                           placeholder="Hostel Location"
-                                                           required=""
-                                                           type="text" />
-                                                    <input name="HostelDetails"
-                                                           placeholder="Hostel Detail"
-                                                           required=""
-                                                           type="text" />
-                                                    <input name="HostelRent"
-                                                           placeholder="Hostel Rent"
-                                                           required=""
-                                                           type="text" />
-                                                    <input type="file" name="Image" id="Image" />
+                                                    
+
+                                                    <textarea name="Details"
+                                                              placeholder="News Description"
+                                                              rows="8" cols="30"
+                                                              required=""></textarea>
 
                                                 </div>
                                                 <div class="col-lg-12 text-center">
@@ -275,5 +266,3 @@
             <script src="js/theme.js"></script>
 </body>
 </html>
-
-

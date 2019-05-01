@@ -18,7 +18,7 @@ namespace SmartSchoolWebPortal.Models
         public DateTime Date { get; set; }
 
         [Display(Name = "Leave Status")]
-        public int Status { get; set; }
+        public string Status { get; set; }
 
         [Display(Name = "Student Id")]
         public int StudentId { get; set; }

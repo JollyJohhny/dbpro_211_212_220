@@ -1,7 +1,7 @@
-﻿@model SmartSchoolWebPortal.Models.HostelViewModel
+﻿@model SmartSchoolWebPortal.Models.RegisteredCourseViewModel
 
 @{
-    ViewBag.Title = "AddHostel";
+    ViewBag.Title = "RegisterCourse";
 }
 
 <!DOCTYPE html>
@@ -176,10 +176,10 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="banner_content text-center">
-                            <h2>Hostels</h2>
+                            <h2>Course</h2>
                             <div class="page_link">
 
-                                <a href="#">Add</a>
+                                <a href="#">Register</a>
                             </div>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="main_title">
-                        <h2 class="mb-3">You can Add Hostels From Here!</h2>
+                        <h2 class="mb-3">You can Register Student Course From Here!</h2>
                     </div>
                 </div>
             </div>
@@ -211,11 +211,11 @@
                             </div>
                         </div>
                         <center>
-                            <div class="col-lg-4 offset-lg-1">
+                            <div class="col-lg-8 offset-lg-1">
                                 <div class="register_form">
-                                    <h3>Add Hostel</h3>
+                                    <h3>Register Course</h3>
                                     <p>Enter Hostel Information</p>
-                                    @using (Html.BeginForm("MAddHostels", "Management", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                                    @using (Html.BeginForm("RegisterCourse", "Management", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
                                     {
                                         <form class="form_area"
                                               id="myForm"
@@ -223,27 +223,27 @@
                                               method="post">
                                             <div class="row">
                                                 <div class="col-lg-12 form_group">
-                                                    <input name="HostelName"
-                                                           placeholder="Hostel Name"
-                                                           required=""
-                                                           type="text" />
-                                                    <input name="HostelLocation"
-                                                           placeholder="Hostel Location"
-                                                           required=""
-                                                           type="text" />
-                                                    <input name="HostelDetails"
-                                                           placeholder="Hostel Detail"
-                                                           required=""
-                                                           type="text" />
-                                                    <input name="HostelRent"
-                                                           placeholder="Hostel Rent"
-                                                           required=""
-                                                           type="text" />
-                                                    <input type="file" name="Image" id="Image" />
+                                                    <div class="col-lg-12 form_group">
+                                                        <select name="CourseId">
+                                                            <option value="0">Select Course</option>
+                                                            <option value="1">English</option>
+                                                            <option value="2">Urdu</option>
+                                                            <option value="3">Math</option>
+                                                            <option value="4">Science</option>
+                                                            <option value="5">Computer</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="single-element-widget">
+                                                        <div class="default-select" id="default-select">
+                                                            <div>
+                                                                @Html.DropDownList("StudentId", (IEnumerable<SelectListItem>)ViewBag.list, "Choose Student", new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
                                                 </div>
                                                 <div class="col-lg-12 text-center">
-                                                    <button type="submit" class="primary-btn">Add</button>
+                                                    <button type="submit" class="primary-btn">Register</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -275,5 +275,3 @@
             <script src="js/theme.js"></script>
 </body>
 </html>
-
-

@@ -18,6 +18,8 @@ namespace SmartSchoolWebPortal
         public Nullable<int> StudentId { get; set; }
         public Nullable<int> ParentId { get; set; }
         public string Details { get; set; }
+        public Nullable<int> Status { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     
         public virtual Parent Parent { get; set; }
         public virtual Student Student { get; set; }

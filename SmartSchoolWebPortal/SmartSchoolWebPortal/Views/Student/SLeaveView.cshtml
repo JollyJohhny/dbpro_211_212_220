@@ -1,8 +1,9 @@
-﻿@model IEnumerable<SmartSchoolWebPortal.Models.HostelViewModel>
+﻿@model IEnumerable<SmartSchoolWebPortal.Models.LeaveViewModel>
 
 @{
-    ViewBag.Title = "ViewHostels";
+    ViewBag.Title = "SLeaveView";
 }
+
 
 <body>
     <header class="header_area white-header">
@@ -159,10 +160,10 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="banner_content text-center">
-                            <h2>Hostels</h2>
+                            <h2>Leaves</h2>
                             <div class="page_link">
 
-                                <a href="#">View/Request</a>
+                                <a href="#">View</a>
                             </div>
                         </div>
                     </div>
@@ -171,23 +172,19 @@
         </div>
     </section>
 
+
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ImagePath)
+                @Html.DisplayNameFor(model => model.Reason)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HostelName)
+                @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HostelLocation)
+                @Html.DisplayNameFor(model => model.Status)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HostelDetails)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HostelRent)
-            </th>
+
             <th></th>
         </tr>
 
@@ -195,31 +192,18 @@
         {
             <tr>
                 <td>
-                    <img src="@item.ImagePath" style="width:160px;height:180px;border-radius:50%" />
+                    @Html.DisplayFor(modelItem => item.Reason)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.HostelName)
+                    @Html.DisplayFor(modelItem => item.Date)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.HostelLocation)
+                    @Html.DisplayFor(modelItem => item.Status)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HostelDetails)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HostelRent)
-                </td>
-                <td>
-                    <div class="button-group-area mt-40">
-                        <a href="/Student/RequestHostel/@item.Id" class="genric-btn primary circle arrow">Request Hostel<span class="ti-arrow-right"></span></a>
-                    </div>
-                </td>
+
             </tr>
         }
 
     </table>
 
 </body>
-
-
-

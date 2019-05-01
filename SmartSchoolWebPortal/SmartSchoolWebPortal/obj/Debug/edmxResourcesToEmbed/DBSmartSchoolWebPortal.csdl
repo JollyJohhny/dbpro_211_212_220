@@ -105,6 +105,8 @@
     <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Parent" Relationship="Self.FK_Complaints_Parent" FromRole="Complaints" ToRole="Parent" />
     <NavigationProperty Name="Student" Relationship="Self.FK_Complaints_Student" FromRole="Complaints" ToRole="Student" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="Course">
     <Key>

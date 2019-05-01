@@ -95,6 +95,8 @@
     <Property Name="StudentId" Type="int" />
     <Property Name="ParentId" Type="int" />
     <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Date" Type="date" />
   </EntityType>
   <EntityType Name="Course">
     <Key>

@@ -100,6 +100,8 @@
           <Property Name="StudentId" Type="int" />
           <Property Name="ParentId" Type="int" />
           <Property Name="Details" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Date" Type="date" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
@@ -901,6 +903,8 @@
           <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Parent" Relationship="Self.FK_Complaints_Parent" FromRole="Complaints" ToRole="Parent" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Complaints_Student" FromRole="Complaints" ToRole="Student" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
@@ -1697,6 +1701,8 @@
           <EntitySetMapping Name="Complaints">
             <EntityTypeMapping TypeName="DBSmartSchoolWebPortalModel.Complaint">
               <MappingFragment StoreEntitySet="Complaints">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
                 <ScalarProperty Name="ParentId" ColumnName="ParentId" />

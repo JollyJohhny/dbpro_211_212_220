@@ -19,5 +19,10 @@ namespace SmartSchoolWebPortal.Models
 
         [Display(Name = "Details")]
         public string Details { get; set; }
+
+        [Display(Name = "Complaint Status")]
+        public string Status { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }
