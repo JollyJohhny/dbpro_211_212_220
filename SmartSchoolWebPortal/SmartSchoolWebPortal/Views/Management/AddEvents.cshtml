@@ -1,7 +1,7 @@
-﻿@model SmartSchoolWebPortal.Models.NewsViewModel
+﻿@model SmartSchoolWebPortal.Models.EventViewModel
 
 @{
-    ViewBag.Title = "AddNews";
+    ViewBag.Title = "AddEvent";
 }
 
 <!DOCTYPE html>
@@ -176,7 +176,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="banner_content text-center">
-                            <h2>News</h2>
+                            <h2>Event</h2>
                             <div class="page_link">
 
                                 <a href="#">Add</a>
@@ -194,7 +194,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="main_title">
-                        <h2 class="mb-3">You can Add News From Here!</h2>
+                        <h2 class="mb-3">You can Add Event From Here!</h2>
                     </div>
                 </div>
             </div>
@@ -213,9 +213,9 @@
                         <center>
                             <div class="col-lg-6 offset-lg-1">
                                 <div class="register_form">
-                                    <h3>Add News</h3>
-                                    <p>Enter News Information</p>
-                                    @using (Html.BeginForm("AddNews", "Management", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                                    <h3>Add Event</h3>
+                                    <p>Enter Event Information</p>
+                                    @using (Html.BeginForm("AddEvents", "Management", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
                                     {
                                         <form class="form_area"
                                               id="myForm"
@@ -227,10 +227,10 @@
                                                            placeholder="News Description"
                                                            required=""
                                                            type="text" />
-                                                    <input name="Title"
-                                                           placeholder="News Title"
+                                                    <input name="Date"
+                                                           placeholder="Event Date"
                                                            required=""
-                                                           type="text" />
+                                                           type="date" />
 
 
                                                 </div>

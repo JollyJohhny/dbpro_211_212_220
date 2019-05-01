@@ -606,6 +606,7 @@ namespace SmartSchoolWebPortal.Controllers
                 n.Date =Convert.ToDateTime(i.Date);
                 n.Description = i.Description;
                 n.Title = i.Title;
+                n.Id = i.Id;
                 if(i.Status != 1)
                 {
                     n.Status = "UnPublished";
@@ -639,6 +640,67 @@ namespace SmartSchoolWebPortal.Controllers
             db.News.Add(news);
             db.SaveChanges();
             return RedirectToAction("ViewNews");
+        }
+
+
+        public ActionResult AddEvents()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult AddEvents(EventViewModel collection)
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            Event eve = new Event();
+            eve.Desciption = collection.Description;
+            eve.Date = collection.Date;
+          
+
+
+            db.Events.Add(eve);
+            db.SaveChanges();
+            return RedirectToAction("ViewEvents");
+        }
+
+        public ActionResult ViewEvents()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.Events.ToList();
+            List<EventViewModel> PassList = new List<EventViewModel>();
+            foreach(var i in List)
+            {
+                EventViewModel e = new EventViewModel();
+                e.Description = i.Desciption;
+                e.Id = i.Id;
+                e.Date =Convert.ToDateTime(i.Date);
+                PassList.Add(e);
+            }
+
+            return View(PassList);
+        }
+
+        public ActionResult DeleteEvent(int id)
+        {
+            DBSmartSchoolWebPortalEntities111 ent = new DBSmartSchoolWebPortalEntities111();
+            var eve = ent.Events.Where(x => x.Id == id).First();
+            ent.Entry(eve).State = System.Data.Entity.EntityState.Deleted;
+            ent.SaveChanges();
+
+            string message = "Event Deleted!";
+            return RedirectToAction("Account", "Management", new { Message = message });
+        }
+
+        public ActionResult DeleteNews(int id)
+        {
+            DBSmartSchoolWebPortalEntities111 ent = new DBSmartSchoolWebPortalEntities111();
+            var news = ent.News.Where(x => x.Id == id).First();
+            ent.Entry(news).State = System.Data.Entity.EntityState.Deleted;
+            ent.SaveChanges();
+
+            string message = "News Deleted!";
+            return RedirectToAction("Account", "Management", new { Message = message });
         }
 
         public ActionResult PublishNews(int id)

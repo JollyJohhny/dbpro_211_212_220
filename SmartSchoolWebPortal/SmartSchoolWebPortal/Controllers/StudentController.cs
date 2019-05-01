@@ -91,6 +91,26 @@ namespace SmartSchoolWebPortal.Controllers
             return RedirectToAction("Account", "Student", new { Message = message });
         }
 
+        public ActionResult ViewEvents()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.Events.ToList();
+            List<EventViewModel> PassList = new List<EventViewModel>();
+            foreach (var i in List)
+            {
+                
+                    EventViewModel e = new EventViewModel();
+                    e.Description = i.Desciption;
+                    e.Id = i.Id;
+                    e.Date = Convert.ToDateTime(i.Date);
+                    PassList.Add(e);
+                
+                
+            }
+
+            return View(PassList);
+        }
+
         public ActionResult Account(string Message)
         {
             DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
