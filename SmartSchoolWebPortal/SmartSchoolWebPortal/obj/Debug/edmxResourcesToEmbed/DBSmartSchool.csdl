@@ -1,0 +1,801 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBSmartSchoolWebPortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DBSmartSchoolWebPortalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="DBSmartSchoolWebPortalModel.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="DBSmartSchoolWebPortalModel.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="DBSmartSchoolWebPortalModel.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="DBSmartSchoolWebPortalModel.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="DBSmartSchoolWebPortalModel.AspNetUser" />
+    <EntitySet Name="Classes" EntityType="DBSmartSchoolWebPortalModel.Class" />
+    <EntitySet Name="ClassAttendances" EntityType="DBSmartSchoolWebPortalModel.ClassAttendance" />
+    <EntitySet Name="ClassTimeTables" EntityType="DBSmartSchoolWebPortalModel.ClassTimeTable" />
+    <EntitySet Name="Complaints" EntityType="DBSmartSchoolWebPortalModel.Complaint" />
+    <EntitySet Name="Courses" EntityType="DBSmartSchoolWebPortalModel.Course" />
+    <EntitySet Name="Enrollments" EntityType="DBSmartSchoolWebPortalModel.Enrollment" />
+    <EntitySet Name="Events" EntityType="DBSmartSchoolWebPortalModel.Event" />
+    <EntitySet Name="Exams" EntityType="DBSmartSchoolWebPortalModel.Exam" />
+    <EntitySet Name="ExamResults" EntityType="DBSmartSchoolWebPortalModel.ExamResult" />
+    <EntitySet Name="HostelRequests" EntityType="DBSmartSchoolWebPortalModel.HostelRequest" />
+    <EntitySet Name="Hostels" EntityType="DBSmartSchoolWebPortalModel.Hostel" />
+    <EntitySet Name="Managements" EntityType="DBSmartSchoolWebPortalModel.Management" />
+    <EntitySet Name="News" EntityType="DBSmartSchoolWebPortalModel.News" />
+    <EntitySet Name="Parents" EntityType="DBSmartSchoolWebPortalModel.Parent" />
+    <EntitySet Name="RegisteredCourses" EntityType="DBSmartSchoolWebPortalModel.RegisteredCourse" />
+    <EntitySet Name="RegisteredHostels" EntityType="DBSmartSchoolWebPortalModel.RegisteredHostel" />
+    <EntitySet Name="Sections" EntityType="DBSmartSchoolWebPortalModel.Section" />
+    <EntitySet Name="Students" EntityType="DBSmartSchoolWebPortalModel.Student" />
+    <EntitySet Name="StudentAttendances" EntityType="DBSmartSchoolWebPortalModel.StudentAttendance" />
+    <EntitySet Name="StudentFees" EntityType="DBSmartSchoolWebPortalModel.StudentFee" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="DBSmartSchoolWebPortalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="DBSmartSchoolWebPortalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Class_Course" Association="DBSmartSchoolWebPortalModel.FK_Class_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Class" EntitySet="Classes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAttendance_Class" Association="DBSmartSchoolWebPortalModel.FK_ClassAttendance_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="ClassAttendance" EntitySet="ClassAttendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassTimeTable_Class" Association="DBSmartSchoolWebPortalModel.FK_ClassTimeTable_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="ClassTimeTable" EntitySet="ClassTimeTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollment_Class" Association="DBSmartSchoolWebPortalModel.FK_Enrollment_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exam_Class" Association="DBSmartSchoolWebPortalModel.FK_Exam_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Exam" EntitySet="Exams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Section_Section" Association="DBSmartSchoolWebPortalModel.FK_Section_Section">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Section" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAttendance_Section" Association="DBSmartSchoolWebPortalModel.FK_ClassAttendance_Section">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="ClassAttendance" EntitySet="ClassAttendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentAttendance_ClassAttendance" Association="DBSmartSchoolWebPortalModel.FK_StudentAttendance_ClassAttendance">
+      <End Role="ClassAttendance" EntitySet="ClassAttendances" />
+      <End Role="StudentAttendance" EntitySet="StudentAttendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassTimeTable_Course" Association="DBSmartSchoolWebPortalModel.FK_ClassTimeTable_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="ClassTimeTable" EntitySet="ClassTimeTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassTimeTable_Section" Association="DBSmartSchoolWebPortalModel.FK_ClassTimeTable_Section">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="ClassTimeTable" EntitySet="ClassTimeTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Complaints_Parent" Association="DBSmartSchoolWebPortalModel.FK_Complaints_Parent">
+      <End Role="Parent" EntitySet="Parents" />
+      <End Role="Complaint" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Complaints_Student" Association="DBSmartSchoolWebPortalModel.FK_Complaints_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Complaint" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exam_Course" Association="DBSmartSchoolWebPortalModel.FK_Exam_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Exam" EntitySet="Exams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegisteredCourse_Course" Association="DBSmartSchoolWebPortalModel.FK_RegisteredCourse_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="RegisteredCourse" EntitySet="RegisteredCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollment_Section" Association="DBSmartSchoolWebPortalModel.FK_Enrollment_Section">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollment_Student" Association="DBSmartSchoolWebPortalModel.FK_Enrollment_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExamResult_Exam" Association="DBSmartSchoolWebPortalModel.FK_ExamResult_Exam">
+      <End Role="Exam" EntitySet="Exams" />
+      <End Role="ExamResult" EntitySet="ExamResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExamResult_Student" Association="DBSmartSchoolWebPortalModel.FK_ExamResult_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="ExamResult" EntitySet="ExamResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HostelRequest_Hostels" Association="DBSmartSchoolWebPortalModel.FK_HostelRequest_Hostels">
+      <End Role="Hostel" EntitySet="Hostels" />
+      <End Role="HostelRequest" EntitySet="HostelRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HostelRequest_Student" Association="DBSmartSchoolWebPortalModel.FK_HostelRequest_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="HostelRequest" EntitySet="HostelRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegisteredHostels_Hostels" Association="DBSmartSchoolWebPortalModel.FK_RegisteredHostels_Hostels">
+      <End Role="Hostel" EntitySet="Hostels" />
+      <End Role="RegisteredHostel" EntitySet="RegisteredHostels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parent_Student" Association="DBSmartSchoolWebPortalModel.FK_Parent_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Parent" EntitySet="Parents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegisteredCourse_Student" Association="DBSmartSchoolWebPortalModel.FK_RegisteredCourse_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="RegisteredCourse" EntitySet="RegisteredCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegisteredHostels_Student" Association="DBSmartSchoolWebPortalModel.FK_RegisteredHostels_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="RegisteredHostel" EntitySet="RegisteredHostels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentAttendance_Student" Association="DBSmartSchoolWebPortalModel.FK_StudentAttendance_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="StudentAttendance" EntitySet="StudentAttendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentFee_Student" Association="DBSmartSchoolWebPortalModel.FK_StudentFee_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="StudentFee" EntitySet="StudentFees" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="DBSmartSchoolWebPortalModel.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="DBSmartSchoolWebPortalModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="DBSmartSchoolWebPortalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="DBSmartSchoolWebPortalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="DBSmartSchoolWebPortalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="DBSmartSchoolWebPortalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="AspNetRoles" Relationship="DBSmartSchoolWebPortalModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CourseId" Type="Int32" />
+    <NavigationProperty Name="Course" Relationship="DBSmartSchoolWebPortalModel.FK_Class_Course" FromRole="Class" ToRole="Course" />
+    <NavigationProperty Name="ClassAttendances" Relationship="DBSmartSchoolWebPortalModel.FK_ClassAttendance_Class" FromRole="Class" ToRole="ClassAttendance" />
+    <NavigationProperty Name="ClassTimeTables" Relationship="DBSmartSchoolWebPortalModel.FK_ClassTimeTable_Class" FromRole="Class" ToRole="ClassTimeTable" />
+    <NavigationProperty Name="Enrollments" Relationship="DBSmartSchoolWebPortalModel.FK_Enrollment_Class" FromRole="Class" ToRole="Enrollment" />
+    <NavigationProperty Name="Exams" Relationship="DBSmartSchoolWebPortalModel.FK_Exam_Class" FromRole="Class" ToRole="Exam" />
+    <NavigationProperty Name="Sections" Relationship="DBSmartSchoolWebPortalModel.FK_Section_Section" FromRole="Class" ToRole="Section" />
+  </EntityType>
+  <EntityType Name="ClassAttendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="SectionId" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Class" Relationship="DBSmartSchoolWebPortalModel.FK_ClassAttendance_Class" FromRole="ClassAttendance" ToRole="Class" />
+    <NavigationProperty Name="Section" Relationship="DBSmartSchoolWebPortalModel.FK_ClassAttendance_Section" FromRole="ClassAttendance" ToRole="Section" />
+    <NavigationProperty Name="StudentAttendances" Relationship="DBSmartSchoolWebPortalModel.FK_StudentAttendance_ClassAttendance" FromRole="ClassAttendance" ToRole="StudentAttendance" />
+  </EntityType>
+  <EntityType Name="ClassTimeTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="Int32" />
+    <Property Name="SectionId" Type="Int32" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Class" Relationship="DBSmartSchoolWebPortalModel.FK_ClassTimeTable_Class" FromRole="ClassTimeTable" ToRole="Class" />
+    <NavigationProperty Name="Course" Relationship="DBSmartSchoolWebPortalModel.FK_ClassTimeTable_Course" FromRole="ClassTimeTable" ToRole="Course" />
+    <NavigationProperty Name="Section" Relationship="DBSmartSchoolWebPortalModel.FK_ClassTimeTable_Section" FromRole="ClassTimeTable" ToRole="Section" />
+  </EntityType>
+  <EntityType Name="Complaint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Parent" Relationship="DBSmartSchoolWebPortalModel.FK_Complaints_Parent" FromRole="Complaint" ToRole="Parent" />
+    <NavigationProperty Name="Student" Relationship="DBSmartSchoolWebPortalModel.FK_Complaints_Student" FromRole="Complaint" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalMarks" Type="Int32" />
+    <NavigationProperty Name="Classes" Relationship="DBSmartSchoolWebPortalModel.FK_Class_Course" FromRole="Course" ToRole="Class" />
+    <NavigationProperty Name="ClassTimeTables" Relationship="DBSmartSchoolWebPortalModel.FK_ClassTimeTable_Course" FromRole="Course" ToRole="ClassTimeTable" />
+    <NavigationProperty Name="Exams" Relationship="DBSmartSchoolWebPortalModel.FK_Exam_Course" FromRole="Course" ToRole="Exam" />
+    <NavigationProperty Name="RegisteredCourses" Relationship="DBSmartSchoolWebPortalModel.FK_RegisteredCourse_Course" FromRole="Course" ToRole="RegisteredCourse" />
+  </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="SectionId" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Class" Relationship="DBSmartSchoolWebPortalModel.FK_Enrollment_Class" FromRole="Enrollment" ToRole="Class" />
+    <NavigationProperty Name="Section" Relationship="DBSmartSchoolWebPortalModel.FK_Enrollment_Section" FromRole="Enrollment" ToRole="Section" />
+    <NavigationProperty Name="Student" Relationship="DBSmartSchoolWebPortalModel.FK_Enrollment_Student" FromRole="Enrollment" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Desciption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="StartTime" Type="Time" Precision="7" />
+    <Property Name="EndTime" Type="Time" Precision="7" />
+  </EntityType>
+  <EntityType Name="Exam">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="Int32" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Class" Relationship="DBSmartSchoolWebPortalModel.FK_Exam_Class" FromRole="Exam" ToRole="Class" />
+    <NavigationProperty Name="Course" Relationship="DBSmartSchoolWebPortalModel.FK_Exam_Course" FromRole="Exam" ToRole="Course" />
+    <NavigationProperty Name="ExamResults" Relationship="DBSmartSchoolWebPortalModel.FK_ExamResult_Exam" FromRole="Exam" ToRole="ExamResult" />
+  </EntityType>
+  <EntityType Name="ExamResult">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExamId" Type="Int32" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="ObtainedMarks" Type="Int32" />
+    <Property Name="EvaluationDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Exam" Relationship="DBSmartSchoolWebPortalModel.FK_ExamResult_Exam" FromRole="ExamResult" ToRole="Exam" />
+    <NavigationProperty Name="Student" Relationship="DBSmartSchoolWebPortalModel.FK_ExamResult_Student" FromRole="ExamResult" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="HostelRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HostelId" Type="Int32" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Hostel" Relationship="DBSmartSchoolWebPortalModel.FK_HostelRequest_Hostels" FromRole="HostelRequest" ToRole="Hostel" />
+    <NavigationProperty Name="Student" Relationship="DBSmartSchoolWebPortalModel.FK_HostelRequest_Student" FromRole="HostelRequest" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Hostel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Rent" Type="Int32" />
+    <NavigationProperty Name="HostelRequests" Relationship="DBSmartSchoolWebPortalModel.FK_HostelRequest_Hostels" FromRole="Hostel" ToRole="HostelRequest" />
+    <NavigationProperty Name="RegisteredHostels" Relationship="DBSmartSchoolWebPortalModel.FK_RegisteredHostels_Hostels" FromRole="Hostel" ToRole="RegisteredHostel" />
+  </EntityType>
+  <EntityType Name="Management">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NIC" Type="String" />
+    <Property Name="HireDate" Type="DateTime" Precision="0" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Parent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NIC" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudentId" Type="Int32" />
+    <NavigationProperty Name="Complaints" Relationship="DBSmartSchoolWebPortalModel.FK_Complaints_Parent" FromRole="Parent" ToRole="Complaint" />
+    <NavigationProperty Name="Student" Relationship="DBSmartSchoolWebPortalModel.FK_Parent_Student" FromRole="Parent" ToRole="Student" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RegisteredCourse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="Int32" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="RegisterationDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Course" Relationship="DBSmartSchoolWebPortalModel.FK_RegisteredCourse_Course" FromRole="RegisteredCourse" ToRole="Course" />
+    <NavigationProperty Name="Student" Relationship="DBSmartSchoolWebPortalModel.FK_RegisteredCourse_Student" FromRole="RegisteredCourse" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="RegisteredHostel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="HostelId" Type="Int32" />
+    <Property Name="RegisterationDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Hostel" Relationship="DBSmartSchoolWebPortalModel.FK_RegisteredHostels_Hostels" FromRole="RegisteredHostel" ToRole="Hostel" />
+    <NavigationProperty Name="Student" Relationship="DBSmartSchoolWebPortalModel.FK_RegisteredHostels_Student" FromRole="RegisteredHostel" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Strength" Type="Int32" />
+    <Property Name="ClassId" Type="Int32" />
+    <NavigationProperty Name="Class" Relationship="DBSmartSchoolWebPortalModel.FK_Section_Section" FromRole="Section" ToRole="Class" />
+    <NavigationProperty Name="ClassAttendances" Relationship="DBSmartSchoolWebPortalModel.FK_ClassAttendance_Section" FromRole="Section" ToRole="ClassAttendance" />
+    <NavigationProperty Name="ClassTimeTables" Relationship="DBSmartSchoolWebPortalModel.FK_ClassTimeTable_Section" FromRole="Section" ToRole="ClassTimeTable" />
+    <NavigationProperty Name="Enrollments" Relationship="DBSmartSchoolWebPortalModel.FK_Enrollment_Section" FromRole="Section" ToRole="Enrollment" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegisterationNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Complaints" Relationship="DBSmartSchoolWebPortalModel.FK_Complaints_Student" FromRole="Student" ToRole="Complaint" />
+    <NavigationProperty Name="Enrollments" Relationship="DBSmartSchoolWebPortalModel.FK_Enrollment_Student" FromRole="Student" ToRole="Enrollment" />
+    <NavigationProperty Name="ExamResults" Relationship="DBSmartSchoolWebPortalModel.FK_ExamResult_Student" FromRole="Student" ToRole="ExamResult" />
+    <NavigationProperty Name="HostelRequests" Relationship="DBSmartSchoolWebPortalModel.FK_HostelRequest_Student" FromRole="Student" ToRole="HostelRequest" />
+    <NavigationProperty Name="Parents" Relationship="DBSmartSchoolWebPortalModel.FK_Parent_Student" FromRole="Student" ToRole="Parent" />
+    <NavigationProperty Name="RegisteredCourses" Relationship="DBSmartSchoolWebPortalModel.FK_RegisteredCourse_Student" FromRole="Student" ToRole="RegisteredCourse" />
+    <NavigationProperty Name="RegisteredHostels" Relationship="DBSmartSchoolWebPortalModel.FK_RegisteredHostels_Student" FromRole="Student" ToRole="RegisteredHostel" />
+    <NavigationProperty Name="StudentAttendances" Relationship="DBSmartSchoolWebPortalModel.FK_StudentAttendance_Student" FromRole="Student" ToRole="StudentAttendance" />
+    <NavigationProperty Name="StudentFees" Relationship="DBSmartSchoolWebPortalModel.FK_StudentFee_Student" FromRole="Student" ToRole="StudentFee" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StudentAttendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassAttendanceId" Type="Int32" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="ClassAttendance" Relationship="DBSmartSchoolWebPortalModel.FK_StudentAttendance_ClassAttendance" FromRole="StudentAttendance" ToRole="ClassAttendance" />
+    <NavigationProperty Name="Student" Relationship="DBSmartSchoolWebPortalModel.FK_StudentAttendance_Student" FromRole="StudentAttendance" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="StudentFee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Student" Relationship="DBSmartSchoolWebPortalModel.FK_StudentFee_Student" FromRole="StudentFee" ToRole="Student" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="DBSmartSchoolWebPortalModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DBSmartSchoolWebPortalModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="DBSmartSchoolWebPortalModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DBSmartSchoolWebPortalModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Class_Course">
+    <End Type="DBSmartSchoolWebPortalModel.Course" Role="Course" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.Class" Role="Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAttendance_Class">
+    <End Type="DBSmartSchoolWebPortalModel.Class" Role="Class" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.ClassAttendance" Role="ClassAttendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassAttendance">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassTimeTable_Class">
+    <End Type="DBSmartSchoolWebPortalModel.Class" Role="Class" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.ClassTimeTable" Role="ClassTimeTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassTimeTable">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollment_Class">
+    <End Type="DBSmartSchoolWebPortalModel.Class" Role="Class" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exam_Class">
+    <End Type="DBSmartSchoolWebPortalModel.Class" Role="Class" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.Exam" Role="Exam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exam">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Section_Section">
+    <End Type="DBSmartSchoolWebPortalModel.Class" Role="Class" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.Section" Role="Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAttendance_Section">
+    <End Type="DBSmartSchoolWebPortalModel.Section" Role="Section" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.ClassAttendance" Role="ClassAttendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassAttendance">
+        <PropertyRef Name="SectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentAttendance_ClassAttendance">
+    <End Type="DBSmartSchoolWebPortalModel.ClassAttendance" Role="ClassAttendance" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.StudentAttendance" Role="StudentAttendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassAttendance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentAttendance">
+        <PropertyRef Name="ClassAttendanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassTimeTable_Course">
+    <End Type="DBSmartSchoolWebPortalModel.Course" Role="Course" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.ClassTimeTable" Role="ClassTimeTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassTimeTable">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassTimeTable_Section">
+    <End Type="DBSmartSchoolWebPortalModel.Section" Role="Section" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.ClassTimeTable" Role="ClassTimeTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassTimeTable">
+        <PropertyRef Name="SectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Complaints_Parent">
+    <End Type="DBSmartSchoolWebPortalModel.Parent" Role="Parent" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.Complaint" Role="Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Parent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Complaints_Student">
+    <End Type="DBSmartSchoolWebPortalModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.Complaint" Role="Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exam_Course">
+    <End Type="DBSmartSchoolWebPortalModel.Course" Role="Course" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.Exam" Role="Exam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exam">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegisteredCourse_Course">
+    <End Type="DBSmartSchoolWebPortalModel.Course" Role="Course" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.RegisteredCourse" Role="RegisteredCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegisteredCourse">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollment_Section">
+    <End Type="DBSmartSchoolWebPortalModel.Section" Role="Section" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="SectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollment_Student">
+    <End Type="DBSmartSchoolWebPortalModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExamResult_Exam">
+    <End Type="DBSmartSchoolWebPortalModel.Exam" Role="Exam" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.ExamResult" Role="ExamResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExamResult">
+        <PropertyRef Name="ExamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExamResult_Student">
+    <End Type="DBSmartSchoolWebPortalModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.ExamResult" Role="ExamResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExamResult">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HostelRequest_Hostels">
+    <End Type="DBSmartSchoolWebPortalModel.Hostel" Role="Hostel" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.HostelRequest" Role="HostelRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hostel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HostelRequest">
+        <PropertyRef Name="HostelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HostelRequest_Student">
+    <End Type="DBSmartSchoolWebPortalModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.HostelRequest" Role="HostelRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HostelRequest">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegisteredHostels_Hostels">
+    <End Type="DBSmartSchoolWebPortalModel.Hostel" Role="Hostel" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.RegisteredHostel" Role="RegisteredHostel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hostel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegisteredHostel">
+        <PropertyRef Name="HostelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parent_Student">
+    <End Type="DBSmartSchoolWebPortalModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.Parent" Role="Parent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parent">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegisteredCourse_Student">
+    <End Type="DBSmartSchoolWebPortalModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.RegisteredCourse" Role="RegisteredCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegisteredCourse">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegisteredHostels_Student">
+    <End Type="DBSmartSchoolWebPortalModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.RegisteredHostel" Role="RegisteredHostel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegisteredHostel">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentAttendance_Student">
+    <End Type="DBSmartSchoolWebPortalModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.StudentAttendance" Role="StudentAttendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentAttendance">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentFee_Student">
+    <End Type="DBSmartSchoolWebPortalModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="DBSmartSchoolWebPortalModel.StudentFee" Role="StudentFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentFee">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="DBSmartSchoolWebPortalModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="DBSmartSchoolWebPortalModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+</Schema>

@@ -1,0 +1,223 @@
+﻿@model SmartSchoolWebPortal.StudentAttendance
+
+@{
+    ViewBag.Title = "Mark";
+}
+
+<body>
+
+    <!--================ Start Header Menu Area =================-->
+    <header class="header_area white-header">
+        <div class="main_menu">
+            <div class="search_input" id="search_input_box">
+                <div class="container">
+                    <form class="d-flex justify-content-between" method="" action="">
+                        <input type="text"
+                               class="form-control"
+                               id="search_input"
+                               placeholder="Search Here" />
+                        <button type="submit" class="btn"></button>
+                        <span class="ti-close"
+                              id="close_search"
+                              title="Close Search"></span>
+                    </form>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand" href="index.html">
+                        <img class="logo-2" src="~/img/logo2.png" alt="" />
+                    </a>
+                    <button class="navbar-toggler"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset"
+                         id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Home/Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Management/LogOff">Log Off</a>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Manage Student</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/Attendance">Attendance</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/AddResult">Result</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/STudentRequests">Register Requests</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/LeaveRequest">Leave Requests</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/ViewAllStudent">View All</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/Enrollment">EnRollMent</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Manage Parents</a>
+                                <ul class="dropdown-menu">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/PTudentRequests">Register Requests</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/ViewAllParent">View All</a>
+                                    </li>s
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Manage Hostels</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/MAddHostels">Add Hostels</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/MViewHostels">View Hostels</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/HostelRequests">Hostels Requests</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">News/Events</a>
+                                <ul class="dropdown-menu">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/AddNews">Add News</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/Viewnews">View News</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/AddEvents">Add Events</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Management/ViewEvents">Update Events</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link search" id="search">
+                                    <i class="ti-search"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================ End Header Menu Area =================-->
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="banner_content text-center">
+                            <h2>Management</h2>
+                            <div class="page_link">
+
+                                <a href="#">Account</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="section_gap registration_area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="row clock_sec clockdiv" id="clockdiv">
+                        <div class="col-lg-12">
+                            <h1 class="mb-3">Welcome Sir!</h1>
+                            <p>
+                                After Logging in you can avail all the Management Features sir. Have a Nice Day!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-lg-1">
+                    <div class="register_form">
+                        <h3>Login</h3>
+                        <p>Enter Valid Information</p>
+                        @using (Html.BeginForm("Mark", "Management", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            <form class="form_area"
+                                  id="myForm"
+                                  action="mail.html"
+                                  method="post">
+                                <div class="row">
+                                    <div class="col-lg-12 form_group">
+                                        <select name="Status">
+                                            <option value="0">Select Section</option>
+                                            <option value="1">Present</option>
+                                            <option value="2">Absent</option>
+                                            <option value="3">Late</option>
+                                            <option value="4">Leave</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-12 text-center">
+                                        <input type="submit" class="btn primary-btn" value="Mark Attendance" />
+
+                                    </div>
+                                </div>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>

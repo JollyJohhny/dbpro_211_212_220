@@ -1,0 +1,221 @@
+﻿@model IEnumerable<SmartSchoolWebPortal.Models.HostelViewModel>
+
+@{
+    ViewBag.Title = "ViewHostels";
+}
+
+<body>
+    <header class="header_area white-header">
+        <div class="main_menu">
+            <div class="search_input" id="search_input_box">
+                <div class="container">
+                    <form class="d-flex justify-content-between" method="" action="">
+                        <input type="text"
+                               class="form-control"
+                               id="search_input"
+                               placeholder="Search Here" />
+                        <button type="submit" class="btn"></button>
+                        <span class="ti-close"
+                              id="close_search"
+                              title="Close Search"></span>
+                    </form>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand" href="index.html">
+                        <img class="logo-2" src="img/logo2.png" alt="" />
+                    </a>
+                    <button class="navbar-toggler"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset"
+                         id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Home/Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Student/LogOff">Log Off</a>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Attendance</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Student/ViewAttendance">View Attendance</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Student/SLeaveRequests">Leave Request</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Student/SLeaveView">View Leaves</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Student/SViewTimetable">View Timetable</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="~/Student/ViewRegCourses"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Registered Courses</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Student/ViewRegCourses">View</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Hostels</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Student/ViewHostels">View/Request Hostels</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Student Fee</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Student/SAnnualStatus">View</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item submenu dropdown">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Other</a>
+                                <ul class="dropdown-menu">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Student/ViewNews">View News</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Student/ViewEvents">View Events</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Student/AddComplaint">Add Complaint</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Student/ComplaintStatus">Complaint Status</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link search" id="search">
+                                    <i class="ti-search"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="banner_content text-center">
+                            <h2>Hostels</h2>
+                            <div class="page_link">
+
+                                <a href="#">View/Request</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HostelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HostelLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HostelDetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HostelRent)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@item.ImagePath" style="width:160px;height:180px;border-radius:50%" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HostelName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HostelLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HostelDetails)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HostelRent)
+                </td>
+                <td>
+                    <div class="button-group-area mt-40">
+                        <a href="/Student/RequestHostel/@item.Id" class="genric-btn primary circle arrow">Request Hostel<span class="ti-arrow-right"></span></a>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</body>
+
+
+

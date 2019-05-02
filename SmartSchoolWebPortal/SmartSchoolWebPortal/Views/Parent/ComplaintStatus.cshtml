@@ -1,0 +1,211 @@
+﻿@model IEnumerable<SmartSchoolWebPortal.Models.ComplainViewModel>
+
+@{
+    ViewBag.Title = "ComplaintStatus";
+}
+
+<body>
+    <header class="header_area white-header">
+        <div class="main_menu">
+            <div class="search_input" id="search_input_box">
+                <div class="container">
+                    <form class="d-flex justify-content-between" method="" action="">
+                        <input type="text"
+                               class="form-control"
+                               id="search_input"
+                               placeholder="Search Here" />
+                        <button type="submit" class="btn"></button>
+                        <span class="ti-close"
+                              id="close_search"
+                              title="Close Search"></span>
+                    </form>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand" href="index.html">
+                        <img class="logo-2" src="img/logo2.png" alt="" />
+                    </a>
+                    <button class="navbar-toggler"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset"
+                         id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Home/Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Parent/LogOff">Log Off</a>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Attendance</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/ViewAttendance">View Attendance</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/SLeaveView">View Leaves</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/SViewTimetable">View Timetable</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/PLeaveRequests">Request Leave</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="~/Parent/ViewRegCourses"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Registered Courses</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/ViewRegCourses">View</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Hostels</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/ViewHostels">View/Request Hostels</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Student Fee</a>
+                                <ul class="dropdown-menu">
+
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/SAnnualStatus">View</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Other</a>
+                                <ul class="dropdown-menu">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/ViewNews">View News</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/ViewEvents">View Events</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/AddComplaint">Add Complaint</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Parent/ComplaintStatus">Complaint Status</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link search" id="search">
+                                    <i class="ti-search"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================ End Header Menu Area =================-->
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="banner_content text-center">
+                            <h2>Complaint</h2>
+                            <div class="page_link">
+
+                                <a href="#">List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Details)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</body>
+
+
+
+
