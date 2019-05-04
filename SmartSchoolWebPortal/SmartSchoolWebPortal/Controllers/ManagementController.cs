@@ -962,7 +962,7 @@ namespace SmartSchoolWebPortal.Controllers
         public ActionResult GenerateReportAllStudents()
         {
             DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
-            var List = db.Students.ToList();
+            var List = db.Students.Where(x => x.Status == 1).ToList();
 
             List<StudentViewModel> PassList = new List<StudentViewModel>();
             foreach (var i in List)
@@ -1000,7 +1000,7 @@ namespace SmartSchoolWebPortal.Controllers
         public ActionResult GenerateReportAllParents()
         {
             DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
-            var List = db.Parents.ToList();
+            var List = db.Parents.Where(x => x.Status == 1).ToList();
 
             List<ParentViewModel> PassList = new List<ParentViewModel>();
             foreach (var i in List)
@@ -1165,6 +1165,92 @@ namespace SmartSchoolWebPortal.Controllers
                 Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
                 stream.Seek(0, SeekOrigin.Begin);
                 return File(stream, "application/pdf", "ComplaintsList.pdf");
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public ActionResult GenerateReportFees(int id)
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var student = db.Students.Where(x => x.Id == id).First();
+            var fees = db.StudentFees.Where(x => x.StudentId == id).ToList();
+            List<StudentFeeViewModel> PassList = new List<StudentFeeViewModel>();
+            foreach (var i in fees)
+            {
+                StudentFeeViewModel sf = new StudentFeeViewModel();
+                sf.Amount = Convert.ToInt32(i.Amount);
+                sf.Date = Convert.ToDateTime(i.Date);
+                sf.Status = i.Status;
+                sf.Id = i.Id;
+                PassList.Add(sf);
+            }
+
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports"), "CrystalReportFees.rpt"));
+            rd.SetDataSource(PassList);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "FeesList.pdf");
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public ActionResult GenerateReportAtt()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var list = db.StudentAttendances.ToList();
+            List<StudentAttendanceViewModel> LIST = new List<StudentAttendanceViewModel>();
+            foreach (var i in list)
+            {
+                StudentAttendanceViewModel s = new StudentAttendanceViewModel();
+                var att = db.ClassAttendances.Where(x => x.Id == i.ClassAttendanceId).First();
+
+                s.StudentId = Convert.ToInt32(i.StudentId);
+                if (i.Status == 1)
+                {
+                    s.Status = "Present";
+                }
+                else if (i.Status == 2)
+                {
+                    s.Status = "Absent";
+                }
+                else if (i.Status == 3)
+                {
+                    s.Status = "Leave";
+                }
+                else
+                {
+                    s.Status = "Late";
+                }
+                s.Date =Convert.ToDateTime(att.Date);
+                LIST.Add(s);
+
+            }
+
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports"), "CrystalReportAtt.rpt"));
+            rd.SetDataSource(LIST);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "AttendanceList.pdf");
 
             }
             catch

@@ -378,8 +378,134 @@ namespace SmartSchoolWebPortal.Controllers
             }
         }
 
-        
+        //Reports
 
-        
+        public ActionResult GenerateReportCourses()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.RegisteredCourses.Where(x => x.StudentId == LoginClass.LoginId).ToList();
+            List<RegisteredCourseViewModel> PassList = new List<RegisteredCourseViewModel>();
+            foreach (var i in List)
+            {
+                RegisteredCourseViewModel r = new RegisteredCourseViewModel();
+                var c = db.Courses.Where(x => x.Id == i.CourseId).First();
+                r.Name = c.Title;
+                r.Date = Convert.ToDateTime(i.RegisterationDate);
+                PassList.Add(r);
+            }
+
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports"), "CrystalReportCourses.rpt"));
+            rd.SetDataSource(PassList);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "RegisteredCoursesList.pdf");
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public ActionResult GenerateReportAttendance()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+
+            var AttendanceList = db.StudentAttendances.Where(x => x.StudentId == LoginClass.LoginId).ToList();
+            List<StudentAttendanceViewModel> PassList = new List<StudentAttendanceViewModel>();
+
+            foreach (var i in AttendanceList)
+            {
+                StudentAttendanceViewModel att = new StudentAttendanceViewModel();
+                var classattendance = db.ClassAttendances.Where(x => x.Id == i.ClassAttendanceId).First();
+                att.Date = Convert.ToDateTime(classattendance.Date);
+                if (i.Status == 1)
+                {
+                    att.Status = "Present";
+                }
+                else if (i.Status == 2)
+                {
+                    att.Status = "Absent";
+                }
+                else if (i.Status == 3)
+                {
+                    att.Status = "Leave";
+                }
+                else
+                {
+                    att.Status = "Late";
+                }
+
+                PassList.Add(att);
+            }
+
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports"), "CrystalReportAttendance.rpt"));
+            rd.SetDataSource(PassList);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "RegisteredCoursesList.pdf");
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public ActionResult GenerateReportLeaves()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+
+            var List = db.LeavesRequests.Where(x => x.StudentId == LoginClass.LoginId).ToList();
+            List<LeaveViewModel> PassList = new List<LeaveViewModel>();
+            foreach (var i in List)
+            {
+                LeaveViewModel l = new LeaveViewModel();
+                l.Id = i.Id;
+                l.Reason = i.Reason;
+                l.Date = Convert.ToDateTime(i.Date);
+                if (i.Status == 1)
+                {
+                    l.Status = "Approved";
+                }
+                else
+                {
+                    l.Status = "Pending";
+                }
+                PassList.Add(l);
+            }
+
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports"), "CrystalReportLeaves.rpt"));
+            rd.SetDataSource(PassList);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "LeaveList.pdf");
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+
     }
 }
