@@ -238,3 +238,19 @@ D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal - Copy\Sma
 D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal - Copy\SmartSchoolWebPortal\obj\Debug\SmartSchoolWebPortal.csproj.CopyComplete
 D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal - Copy\SmartSchoolWebPortal\obj\Debug\SmartSchoolWebPortal.dll
 D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal - Copy\SmartSchoolWebPortal\obj\Debug\SmartSchoolWebPortal.pdb
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportSource.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.Shared.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\6th\Database Management System LAB\VS ka kaam\SmartSchoolWebPortal\SmartSchoolWebPortal\bin\stdole.dll

@@ -1,4 +1,5 @@
-﻿using SmartSchoolWebPortal.Models;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using SmartSchoolWebPortal.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -956,6 +957,221 @@ namespace SmartSchoolWebPortal.Controllers
 
 
 
+        // Reports Functions
+
+        public ActionResult GenerateReportAllStudents()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.Students.ToList();
+
+            List<StudentViewModel> PassList = new List<StudentViewModel>();
+            foreach (var i in List)
+            {
+                StudentViewModel student = new StudentViewModel();
+                student.Name = i.Name;
+                student.Id = i.Id;
+                student.Contact = i.Contact;
+                student.RegisterationNumber = i.RegisterationNumber;
+                student.Email = i.Email;
+                student.UserName = i.UserName;
+                student.Password = i.Password;
+                PassList.Add(student);
+            }
+
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports"), "CrystalReportAllStudents.rpt"));
+            rd.SetDataSource(PassList);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "RegisteredStudentsList.pdf");
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public ActionResult GenerateReportAllParents()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.Parents.ToList();
+
+            List<ParentViewModel> PassList = new List<ParentViewModel>();
+            foreach (var i in List)
+            {
+                ParentViewModel parent = new ParentViewModel();
+                parent.Name = i.Name;
+                parent.Contact = i.Contact;
+                parent.Id = i.Id;
+                parent.Email = i.Email;
+                parent.NIC = i.NIC;
+                parent.UserName = i.UserName;
+                parent.Password = i.Password;
+
+                PassList.Add(parent);
+            }
+
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports"), "CrystalReportAllParents.rpt"));
+            rd.SetDataSource(PassList);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "RegisteredParentsList.pdf");
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+
+        public ActionResult GenerateReportHostels()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var list = db.Hostels.ToList();
+            List<HostelViewModel> PassList = new List<HostelViewModel>();
+            foreach (var i in list)
+            {
+                HostelViewModel h = new HostelViewModel();
+                h.HostelName = i.Name;
+                h.HostelLocation = i.Location;
+                h.Id = i.Id;
+                h.HostelRent = Convert.ToInt32(i.Rent);
+                h.HostelDetails = i.Details;
+                PassList.Add(h);
+            }
+
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports"), "CrystalReportAllHostels.rpt"));
+            rd.SetDataSource(PassList);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "HostelsList.pdf");
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public ActionResult GenerateReportNews()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            List<NewsViewModel> PassList = new List<NewsViewModel>();
+            var List = db.News.Where(x => x.Status == 1).ToList();
+            foreach (var i in List)
+            {
+                NewsViewModel n = new NewsViewModel();
+                n.Date = Convert.ToDateTime(i.Date);
+                n.Description = i.Description;
+                n.Title = i.Title;
+
+                PassList.Add(n);
+
+            }
+
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports"), "CrystalReportNews.rpt"));
+            rd.SetDataSource(PassList);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "NewsList.pdf");
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public ActionResult GenerateReportEvents()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.Events.ToList();
+            List<EventViewModel> PassList = new List<EventViewModel>();
+            foreach (var i in List)
+            {
+                EventViewModel e = new EventViewModel();
+                e.Description = i.Desciption;
+                e.Id = i.Id;
+                e.Date = Convert.ToDateTime(i.Date);
+                PassList.Add(e);
+            }
+
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports"), "CrystalReportEvents.rpt"));
+            rd.SetDataSource(PassList);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "EventsList.pdf");
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public ActionResult GenerateReportComplains()
+        {
+            DBSmartSchoolWebPortalEntities111 db = new DBSmartSchoolWebPortalEntities111();
+            var List = db.Complaints.ToList();
+            List<ComplainViewModel> PassList = new List<ComplainViewModel>();
+            foreach (var i in List)
+            {
+                ComplainViewModel c = new ComplainViewModel();
+                c.Details = i.Details;
+                c.Id = i.Id;
+                c.Date = Convert.ToDateTime(i.Date);
+                PassList.Add(c);
+            }
+
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports"), "CrystalReportComplains.rpt"));
+            rd.SetDataSource(PassList);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "ComplaintsList.pdf");
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
     }
 }

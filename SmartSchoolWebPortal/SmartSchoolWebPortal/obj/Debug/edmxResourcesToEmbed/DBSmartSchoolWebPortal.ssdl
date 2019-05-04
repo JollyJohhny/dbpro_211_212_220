@@ -272,6 +272,84 @@
     <Property Name="Date" Type="date" />
     <Property Name="Status" Type="nvarchar(max)" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSmartSchoolWebPortal.dbo.vw_Courses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_Courses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="TotalMarks" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSmartSchoolWebPortal.dbo.vw_Events' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_Events">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Desciption" Type="nvarchar(max)" />
+    <Property Name="Date" Type="date" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+    <Property Name="EndTime" Type="time" Precision="7" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSmartSchoolWebPortal.dbo.vw_hostels' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_hostels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Location" Type="nvarchar(max)" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Rent" Type="int" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSmartSchoolWebPortal.dbo.vw_News' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_News">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSmartSchoolWebPortal.dbo.vw_RegisteredParents' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_RegisteredParents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Contact" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="NIC" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSmartSchoolWebPortal.dbo.vw_RegisteredStudents' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_RegisteredStudents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Contact" Type="nvarchar(max)" />
+    <Property Name="RegisterationNumber" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
   <Association Name="FK_ClassAttendance_Class">
     <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
     <End Role="ClassAttendance" Type="Self.ClassAttendance" Multiplicity="*" />
@@ -668,6 +746,66 @@
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StudentAttendance" EntityType="Self.StudentAttendance" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StudentFee" EntityType="Self.StudentFee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_Courses" EntityType="Self.vw_Courses" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_Courses].[Id] AS [Id], 
+    [vw_Courses].[Title] AS [Title], 
+    [vw_Courses].[TotalMarks] AS [TotalMarks]
+    FROM [dbo].[vw_Courses] AS [vw_Courses]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_Events" EntityType="Self.vw_Events" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_Events].[Id] AS [Id], 
+    [vw_Events].[Desciption] AS [Desciption], 
+    [vw_Events].[Date] AS [Date], 
+    [vw_Events].[StartTime] AS [StartTime], 
+    [vw_Events].[EndTime] AS [EndTime]
+    FROM [dbo].[vw_Events] AS [vw_Events]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_hostels" EntityType="Self.vw_hostels" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_hostels].[Id] AS [Id], 
+    [vw_hostels].[Name] AS [Name], 
+    [vw_hostels].[Location] AS [Location], 
+    [vw_hostels].[Details] AS [Details], 
+    [vw_hostels].[Rent] AS [Rent], 
+    [vw_hostels].[ImagePath] AS [ImagePath]
+    FROM [dbo].[vw_hostels] AS [vw_hostels]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_News" EntityType="Self.vw_News" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_News].[Id] AS [Id], 
+    [vw_News].[Date] AS [Date], 
+    [vw_News].[Description] AS [Description], 
+    [vw_News].[Title] AS [Title], 
+    [vw_News].[Status] AS [Status]
+    FROM [dbo].[vw_News] AS [vw_News]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_RegisteredParents" EntityType="Self.vw_RegisteredParents" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_RegisteredParents].[Id] AS [Id], 
+    [vw_RegisteredParents].[Name] AS [Name], 
+    [vw_RegisteredParents].[Contact] AS [Contact], 
+    [vw_RegisteredParents].[UserName] AS [UserName], 
+    [vw_RegisteredParents].[Password] AS [Password], 
+    [vw_RegisteredParents].[NIC] AS [NIC], 
+    [vw_RegisteredParents].[Email] AS [Email], 
+    [vw_RegisteredParents].[StudentId] AS [StudentId], 
+    [vw_RegisteredParents].[Status] AS [Status]
+    FROM [dbo].[vw_RegisteredParents] AS [vw_RegisteredParents]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_RegisteredStudents" EntityType="Self.vw_RegisteredStudents" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_RegisteredStudents].[Id] AS [Id], 
+    [vw_RegisteredStudents].[Name] AS [Name], 
+    [vw_RegisteredStudents].[Contact] AS [Contact], 
+    [vw_RegisteredStudents].[RegisterationNumber] AS [RegisterationNumber], 
+    [vw_RegisteredStudents].[Password] AS [Password], 
+    [vw_RegisteredStudents].[UserName] AS [UserName], 
+    [vw_RegisteredStudents].[Email] AS [Email], 
+    [vw_RegisteredStudents].[Status] AS [Status]
+    FROM [dbo].[vw_RegisteredStudents] AS [vw_RegisteredStudents]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_ClassAttendance_Class" Association="Self.FK_ClassAttendance_Class">
       <End Role="Class" EntitySet="Class" />
       <End Role="ClassAttendance" EntitySet="ClassAttendance" />

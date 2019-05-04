@@ -51,5 +51,11 @@ namespace SmartSchoolWebPortal
         public virtual DbSet<StudentAttendance> StudentAttendances { get; set; }
         public virtual DbSet<StudentFee> StudentFees { get; set; }
         public virtual DbSet<LeavesRequest> LeavesRequests { get; set; }
+        public virtual DbSet<vw_Courses> vw_Courses { get; set; }
+        public virtual DbSet<vw_Events> vw_Events { get; set; }
+        public virtual DbSet<vw_hostels> vw_hostels { get; set; }
+        public virtual DbSet<vw_News> vw_News { get; set; }
+        public virtual DbSet<vw_RegisteredParents> vw_RegisteredParents { get; set; }
+        public virtual DbSet<vw_RegisteredStudents> vw_RegisteredStudents { get; set; }
     }
 }

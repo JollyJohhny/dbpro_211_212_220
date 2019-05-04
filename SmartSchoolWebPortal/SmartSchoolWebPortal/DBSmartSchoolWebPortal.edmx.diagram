@@ -60,6 +60,12 @@
         <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.LeavesRequest" Width="1.5" PointX="8.25" PointY="20.75" />
         <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_LeavesRequest_Parent" />
         <AssociationConnector Association="DBSmartSchoolWebPortalModel.FK_LeavesRequest_Student" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.vw_Courses" Width="1.5" PointX="8.375" PointY="10.75" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.vw_Events" Width="1.5" PointX="10.375" PointY="10.75" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.vw_hostels" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.vw_News" Width="1.5" PointX="12.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.vw_RegisteredParents" Width="1.5" PointX="12.375" PointY="9.75" />
+        <EntityTypeShape EntityType="DBSmartSchoolWebPortalModel.vw_RegisteredStudents" Width="1.5" PointX="8.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
